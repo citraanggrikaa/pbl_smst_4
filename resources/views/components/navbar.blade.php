@@ -44,15 +44,13 @@
 	                    <li class="nav-item active">
 	                        <a href="{{ url('/') }}" class="nav-link">Home</a>
 	                    </li>
-	                    <li class="nav-item">
+	                    <li class="nav-item active">
 	                        <a href="{{ url('/about') }}" class="nav-link">About</a>
 	                    </li>
-	                    <li class="nav-item">
+	                    <li class="nav-item active">
 	                        <a href="{{ url('/destination') }}" class="nav-link">Destination</a>
-	                    </li><li class="nav-item">
-	                        <a href="{{ url('/contact') }}" class="nav-link">contact</a>
-	                    </li>
-	                    <li class="nav-item cta"><a href="contact.blade.php" class="nav-link"><span>Login</span></a></li>
+	                    </li><li class="nav-item active">
+	                        <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
 	                </ul>
 
 	                <!-- Search Bar -->
