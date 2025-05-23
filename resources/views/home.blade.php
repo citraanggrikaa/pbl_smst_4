@@ -1,42 +1,52 @@
+@php
+$backgroundUrl = asset('images/bali2.jpg');
+@endphp
+
 @include('components.navbar')
 
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<div class="hero-wrap js-fullheight" style="background-image: url('images/bali.jpg');">
-	<div class="overlay"></div>
-	<div class="container">
+<div class="hero-wrap js-fullheight position-relative" style="z-index: 1; overflow: hidden;">
+	<!-- Blur Background -->
+	<div style="position: absolute; inset: 0;
+    background-image: url('{{ $backgroundUrl }}');
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    opacity: 0.6;
+    z-index: 0;">
+	</div>
+
+
+	<!-- Konten Utama -->
+	<div class="container position-relative" style="z-index: 2;">
 		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
 			<div class="col-md-12 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-				<h1 class="mb-4" style="font-size: 48px;" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+				<h1 class="mb-4" style="font-size: 48px; color: #001f3f;">
 					<strong>Selamat Datang Di Jelajah Nusantara</strong><br>
 					Temukan Keindahan, Ciptakan Kenangan!
 				</h1>
+
 				<!-- Search Bar -->
 				<div class="d-flex justify-content-center mt-5 px-3">
 					<form action="" method="post" class="w-100" style="max-width: 700px;">
 						<div class="d-flex align-items-center px-3 py-2" style="background: white; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); height: 54px;">
-
-							<!-- Input -->
 							<input type="text" id="searchInput"
 								class="form-control border-0"
 								placeholder="Search..."
 								style="border-radius: 30px; box-shadow: none; outline: none;">
-
-							<!-- Voice Icon -->
 							<button type="button" id="voiceBtn" class="btn p-0 mx-3 border-0 bg-transparent">
 								<i class="fas fa-microphone text-dark"></i>
 							</button>
-
-							<!-- Search Icon -->
 							<button type="submit" class="btn p-0 border-0 bg-transparent">
 								<i class="fas fa-search text-danger"></i>
 							</button>
-
 						</div>
 					</form>
 				</div>
 				<!-- End Search Bar -->
+
 			</div>
 		</div>
 	</div>
