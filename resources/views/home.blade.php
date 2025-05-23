@@ -12,7 +12,6 @@
 					<strong>Selamat Datang Di Jelajah Nusantara</strong><br>
 					Temukan Keindahan, Ciptakan Kenangan!
 				</h1>
-
 				<!-- Search Bar -->
 				<div class="d-flex justify-content-center mt-5 px-3">
 					<form action="" method="post" class="w-100" style="max-width: 700px;">
@@ -38,7 +37,6 @@
 					</form>
 				</div>
 				<!-- End Search Bar -->
-
 			</div>
 		</div>
 	</div>
@@ -63,7 +61,16 @@
 							<div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
 								<div>
 									<h1 class="mb-4">About Us</h1>
-									<p>Kami adalah tim yang berkomitmen untuk menghadirkan pengalaman pencarian wisata yang inovatif dan efisien. Dengan teknologi full-text search, Anda dapat menemukan informasi tempat wisata berdasarkan nama, lokasi, kategori, atau bahkan kata kunci spesifik yang Anda inginkan.</p>
+									<p style="text-align: justify;">
+										Kami adalah tim yang berkomitmen untuk menghadirkan pengalaman pencarian wisata yang inovatif dan efisien. Dengan teknologi full-text search, Anda dapat menemukan informasi tempat wisata berdasarkan nama, lokasi, kategori, atau bahkan kata kunci spesifik yang Anda inginkan.
+									</p>
+									<p style="text-align: justify;">
+										Platform kami dirancang untuk memberikan kemudahan dalam menemukan destinasi wisata yang sesuai dengan preferensi Anda. Dengan fitur pencarian yang canggih, Anda dapat menjelajahi berbagai tempat menarik di Bali dengan cepat dan mudah.
+									</p>
+									<p style="text-align: justify;">
+										Tim kami terdiri dari para ahli di bidang teknologi informasi dan pariwisata, yang bekerja sama untuk memberikan pengalaman terbaik bagi pengguna. Kami percaya bahwa setiap perjalanan adalah kesempatan untuk menciptakan kenangan tak terlupakan, dan kami ingin membantu Anda mewujudkannya.
+									</p>
+
 								</div>
 							</div>
 						</div>
@@ -84,7 +91,7 @@
 		<div class="row">
 			<div class="col-sm col-md-6 col-lg ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/kuta.jpg);">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>
@@ -92,10 +99,10 @@
 					<div class="text p-3">
 						<div class="d-flex">
 							<div class="one">
-								<h3><a href="#">Paris, Italy</a></h3>
+								<h3><a href="#">Pantai Kuta</a></h3>
 							</div>
 						</div>
-						<p>Far far away, behind the word mountains, far from the countries</p>
+						<p> Terkenal dengan pasir putihnya yang lembut, ombak yang cocok untuk berselancar.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
 							<span><a href="#" class="btn btn-success">Read More</a></span>
@@ -106,7 +113,7 @@
 			</div>
 			<div class="col-sm col-md-6 col-lg ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/sanur.jpg);">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>
@@ -114,10 +121,10 @@
 					<div class="text p-3">
 						<div class="d-flex">
 							<div class="one">
-								<h3><a href="#">Paris, Italy</a></h3>
+								<h3><a href="#">Pantai Sanur</a></h3>
 							</div>
 						</div>
-						<p>Far far away, behind the word mountains, far from the countries</p>
+						<p>Pantai indah terkenal dengan pemandangan matahari terbit yang memukau.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
 							<span><a href="#" class="btn btn-success">Read More</a></span>
@@ -127,7 +134,7 @@
 			</div>
 			<div class="col-sm col-md-6 col-lg ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/uluwatu.jpg);">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>
@@ -135,32 +142,10 @@
 					<div class="text p-3">
 						<div class="d-flex">
 							<div class="one">
-								<h3><a href="#">Paris, Italy</a></h3>
+								<h3><a href="#">Uluwatu</a></h3>
 							</div>
 						</div>
-						<p>Far far away, behind the word mountains, far from the countries</p>
-						<hr>
-						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
-							<span><a href="#" class="btn btn-success">Read More</a></span>
-						</p>
-
-					</div>
-				</div>
-			</div>
-			<div class="col-sm col-md-6 col-lg ftco-animate">
-				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
-						<div class="icon d-flex justify-content-center align-items-center">
-							<span class="icon-search2"></span>
-						</div>
-					</a>
-					<div class="text p-3">
-						<div class="d-flex">
-							<div class="one">
-								<h3><a href="#">Paris, Italy</a></h3>
-							</div>
-						</div>
-						<p>Far far away, behind the word mountains, far from the countries</p>
+						<p>Terkenal dengan tebing curam yang menjulang langsung ke Samudra Hindia.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
 							<span><a href="#" class="btn btn-success">Read More</a></span>
@@ -171,7 +156,7 @@
 			</div>
 			<div class="col-sm col-md-6 col-lg ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/tanah_lot.jpg);">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>
@@ -179,10 +164,32 @@
 					<div class="text p-3">
 						<div class="d-flex">
 							<div class="one">
-								<h3><a href="#">Paris, Italy</a></h3>
+								<h3><a href="#">Tanah Lot</a></h3>
 							</div>
 						</div>
-						<p>Far far away, behind the word mountains, far from the countries</p>
+						<p>Terkenal dengan pura di atas batu karang besar di tengah laut.</p>
+						<hr>
+						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
+							<span><a href="#" class="btn btn-success">Read More</a></span>
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm col-md-6 col-lg ftco-animate">
+				<div class="destination">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/jatiluwih.jpg);">
+						<div class="icon d-flex justify-content-center align-items-center">
+							<span class="icon-search2"></span>
+						</div>
+					</a>
+					<div class="text p-3">
+						<div class="d-flex">
+							<div class="one">
+								<h3><a href="#">Jatiluwih</a></h3>
+							</div>
+						</div>
+						<p>Terkenal dengan panorama alamnya yang hijau dan sistem irigasi tradisional subak.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
 							<span><a href="#" class="btn btn-success">Read More</a></span>

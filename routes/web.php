@@ -24,3 +24,10 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get('/destination/{slug}', function ($slug) {
+    return view('blog-single', ['slug' => $slug]);
+})->name('destination.single');
+
+
+
