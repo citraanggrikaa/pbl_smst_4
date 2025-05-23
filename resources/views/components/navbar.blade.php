@@ -2,71 +2,70 @@
 	<html lang="en">
 
 	<head>
-	    <title>JelajahNusantara</title>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>JelajahNusantara</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
-	    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-	    <link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+		<link rel="stylesheet" href="css/animate.css">
 
-	    <link rel="stylesheet" href="css/owl.carousel.min.css">
-	    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-	    <link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/owl.theme.default.min.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
 
-	    <link rel="stylesheet" href="css/aos.css">
+		<link rel="stylesheet" href="css/aos.css">
 
-	    <link rel="stylesheet" href="css/ionicons.min.css">
+		<link rel="stylesheet" href="css/ionicons.min.css">
 
-	    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-	    <link rel="stylesheet" href="css/jquery.timepicker.css">
+		<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+		<link rel="stylesheet" href="css/jquery.timepicker.css">
 
 
-	    <link rel="stylesheet" href="css/flaticon.css">
-	    <link rel="stylesheet" href="css/icomoon.css">
-	    <link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/icomoon.css">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 
-	<body>
+	<body></body>
 
+	<nav class="navbar navbar-expand-lg ftco-navbar-light"
+		style="
+    backdrop-filter: blur(10px);             /* Efek blur */
+    -webkit-backdrop-filter: blur(10px);     /* Untuk Safari */
+    background-color: rgba(255, 255, 255, 0.8); /* Putih semi transparan */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  ">
 
-	    <nav class="navbar navbar-expand-lg ftco-navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar" style="background-color: #000;">
-	        <div class="container">
-	            <a class="navbar-brand" href="index.html">JelajahNusantara</a>
-	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	                <span class="oi oi-menu"></span> Menu
-	            </button>
+		<!-- Container medium, dengan padding horizontal dan vertikal nyaman -->
+		<div class="container px-4 py-3 d-flex justify-content-between align-items-center">
 
-	            <div class="collapse navbar-collapse" id="ftco-nav">
-	                <ul class="navbar-nav ml-auto">
-	                    <li class="nav-item active">
-	                        <a href="{{ url('/') }}" class="nav-link">Home</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a href="{{ url('/about') }}" class="nav-link">About</a>
-	                    </li>
-	                    <li class="nav-item">
-	                        <a href="{{ url('/destination') }}" class="nav-link">Destination</a>
-	                    </li><li class="nav-item">
-	                        <a href="{{ url('/contact') }}" class="nav-link">contact</a>
-	                    </li>
-	                    <li class="nav-item cta"><a href="contact.blade.php" class="nav-link"><span>Login</span></a></li>
-	                </ul>
+			<!-- Judul Website -->
+			<a class="navbar-brand text-dark font-weight-bold" href="index.html" style="font-size: 1.5rem;">
+				JelajahNusantara
+			</a>
 
-	                <!-- Search Bar -->
-	                <form class="form-inline ml-lg-3 mt-2 mt-lg-0">
-	                    <div class="input-group">
-	                        <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"
-	                            style="border-radius: 50px 0 0 50px; border: none; padding: 6px 15px;">
-	                        <div class="input-group-append">
-	                            <button class="btn btn-sm btn-primary" type="submit"
-	                                style="border-radius: 0 50px 50px 0; padding: 6px 20px;">Search</button>
-	                        </div>
-	                    </div>
-	                </form>
-	            </div>
-	        </div>
-	    </nav>
-	    <!-- END nav -->
+			<!-- Tombol Toggle Mobile -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<!-- Navigasi dan Search -->
+			<div class="collapse navbar-collapse justify-content-end" id="ftco-nav">
+
+				<!-- Menu Navigasi -->
+				<ul class="navbar-nav mr-3">
+					<li class="nav-item active"><a href="{{ url('/') }}" class="nav-link text-dark" style="font-size: 1.2rem;">Home</a></li>
+					<li class="nav-item active"><a href="{{ url('/about') }}" class="nav-link text-dark" style="font-size: 1.2rem;">About</a></li>
+					<li class="nav-item active"><a href="{{ url('/destination') }}" class="nav-link text-dark" style="font-size: 1.2rem;">Destination</a></li>
+					<li class="nav-item active"><a href="{{ url('/contact') }}" class="nav-link text-dark" style="font-size: 1.2rem;">Contact</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>

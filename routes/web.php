@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('blog');
+    return view('about');
 });
 
 Route::get('/destination', function () {
@@ -17,3 +17,17 @@ Route::get('/destination', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/destination/{slug}', function ($slug) {
+    return view('blog-single', ['slug' => $slug]);
+})->name('destination.single');
+
+
+
