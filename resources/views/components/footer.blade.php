@@ -3,7 +3,7 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Jelajah Nusantara</h2>
+          <h2 class="ftco-heading-2">Pesona Bali</h2>
           <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -30,7 +30,7 @@
             <ul>
               <li><span class="icon icon-map-marker"></span><span class="text">Nangka street, Denpasar, Bali, Indonesia</span></li>
               <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 812 345 678 910</span></a></li>
-              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">jelajahnusantara@gmail.com</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">pesonabali@gmail.com</span></a></li>
             </ul>
           </div>
         </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        <p>This project is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://JelajahNusantara.com" target="_blank">Kelompok5</a></p>
+        <p>This project is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://JelajahNusantara.com" target="_blank">Pesona Bali</a></p>
       </div>
     </div>
   </div>
