@@ -2,7 +2,7 @@
 	<html lang="en">
 
 	<head>
-		<title>JelajahNusantara</title>
+		<title>Pesona Bali</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,7 +46,7 @@
 
 			<!-- Judul Website -->
 			<a class="navbar-brand text-dark font-weight-bold" href="index.html" style="font-size: 1.5rem;">
-				JelajahNusantara
+				PesonaBali
 			</a>
 
 			<!-- Tombol Toggle Mobile -->

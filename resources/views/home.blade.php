@@ -1,5 +1,5 @@
 @php
-$backgroundUrl = asset('images/bali2.jpg');
+$backgroundUrl = asset('images/bali.jpg');
 @endphp
 
 @include('components.navbar')
@@ -14,7 +14,7 @@ $backgroundUrl = asset('images/bali2.jpg');
     background-size: cover;
     background-position: center;
     filter: blur(3px);
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: 0;">
 	</div>
 
@@ -24,7 +24,7 @@ $backgroundUrl = asset('images/bali2.jpg');
 		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
 			<div class="col-md-12 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
 				<h1 class="mb-4" style="font-size: 48px; color: #001f3f;">
-					<strong>Selamat Datang Di Jelajah Nusantara</strong><br>
+					<strong>Selamat Datang Di Pesona Bali</strong><br>
 					Temukan Keindahan, Ciptakan Kenangan!
 				</h1>
 
@@ -101,7 +101,7 @@ $backgroundUrl = asset('images/bali2.jpg');
 		<div class="row">
 			<div class="col-sm col-md-6 col-lg ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/kuta.jpg);">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/kuta1.jpg);">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>

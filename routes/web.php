@@ -26,8 +26,18 @@ Route::get('/register', function () {
 });
 
 Route::get('/destination/{slug}', function ($slug) {
-    return view('blog-single', ['slug' => $slug]);
+    switch ($slug) {
+        case 'blog-single':
+            return view('blog-single', ['slug' => $slug]);
+        case 'blog-single2':
+            return view('blog-single2', ['slug' => $slug]);
+        case 'blog-single3':
+            return view('blog-single3', ['slug' => $slug]);
+        default:
+            abort(404); // tampilkan halaman tidak ditemukan
+    }
 })->name('destination.single');
+
 
 
 
