@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
-    public function home()
+    public function home()  // Changed from index() to home()
     {
-
-        return view('home');
+        $destinations = Destination::all();
+        return view('home', compact('destinations'));
     }
+
 
     public function single($id)
     {
@@ -23,15 +24,17 @@ class HomePageController extends Controller
 
     public function destinations()
     {
-        $data = [
-            'destinations' => Destination::all()
-        ];
-        return view('destination', $data);
+        $destinations = Destination::all();
+        return view('destination', compact('destinations'));
     }
+
 
     public function contact()
     {
-        return view('contact');
+        $data = [
+            'contact' => Destination::all()
+        ];
+        return view('contact', $data);
     }
 
     public function about()

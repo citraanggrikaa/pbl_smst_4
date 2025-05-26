@@ -4,11 +4,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', [HomePageController::class, 'home']);
+Route::get('/', [HomePageController::class, 'home']);
 
 Route::get('/about', [HomePageController::class, 'about']);
 
-Route::get('/destinations', [HomePageController::class, 'destinations']);
+Route::get('/destination', [HomePageController::class, 'destinations']);
 
 Route::get('/contact', [HomePageController::class, 'contact']);
 

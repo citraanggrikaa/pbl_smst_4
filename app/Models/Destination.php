@@ -8,4 +8,11 @@ class Destination extends Model
 {
     protected $table = 'destinations';
     protected $guarded = ['id'];
+
+    protected $fillable = [
+        'title',
+        'description',
+        'address',
+        'image'
+    ];
 }
