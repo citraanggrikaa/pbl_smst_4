@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/about', function () {
+Route::get('/about/data', function () {
     return view('about');
 });
 
@@ -37,6 +37,11 @@ Route::get('/destination/{slug}', function ($slug) {
             abort(404); // tampilkan halaman tidak ditemukan
     }
 })->name('destination.single');
+
+use App\Http\Controllers\SearchController;
+
+Route::get('/search/destination', [SearchController::class, 'searchDestination'])->name('search.destination');
+
 
 
 

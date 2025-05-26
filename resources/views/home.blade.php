@@ -30,15 +30,16 @@ $backgroundUrl = asset('images/bali.jpg');
 
 				<!-- Search Bar -->
 				<div class="d-flex justify-content-center mt-5 px-3">
-					<form action="" method="post" class="w-100" style="max-width: 700px;">
-						<div class="d-flex align-items-center px-3 py-2" style="background: white; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); height: 54px;">
+					<form action="{{ route('search.destination') }}" method="GET" class="w-100" style="max-width: 700px;">
+						<div class="d-flex align-items-center px-4 py-2 mx-auto"
+							style="background: white; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); height: 54px;">
+
 							<input type="text" id="searchInput"
+								name="query"
 								class="form-control border-0"
 								placeholder="Search..."
 								style="border-radius: 30px; box-shadow: none; outline: none;">
-							<button type="button" id="voiceBtn" class="btn p-0 mx-3 border-0 bg-transparent">
-								<i class="fas fa-microphone text-dark"></i>
-							</button>
+
 							<button type="submit" class="btn p-0 border-0 bg-transparent">
 								<i class="fas fa-search text-danger"></i>
 							</button>
@@ -115,7 +116,9 @@ $backgroundUrl = asset('images/bali.jpg');
 						<p> Terkenal dengan pasir putihnya yang lembut, ombak yang cocok untuk berselancar.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
-							<span><a href="#" class="btn btn-success">Read More</a></span>
+							<span>
+								<a href="{{ route('destination.single', ['slug' => 'blog-single']) }}" class="btn btn-success">Read More</a>
+							</span>
 						</p>
 
 					</div>
@@ -158,7 +161,9 @@ $backgroundUrl = asset('images/bali.jpg');
 						<p>Terkenal dengan tebing curam yang menjulang langsung ke Samudra Hindia.</p>
 						<hr>
 						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
-							<span><a href="#" class="btn btn-success">Read More</a></span>
+							<span>
+								<a href="{{ route('destination.single', ['slug' => 'blog-single2']) }}" class="btn btn-success">Read More</a>
+							</span>
 						</p>
 
 					</div>
