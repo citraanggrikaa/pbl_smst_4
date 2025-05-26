@@ -54,7 +54,7 @@
                             <div class="col-md-4 ftco-animate">
                                 <div class="destination">
                                     <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                        style="background-image: url(images/kuta1.jpg);">
+                                        style="background-image: url(images/kuta.jpg);">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>

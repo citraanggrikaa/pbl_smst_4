@@ -125,15 +125,19 @@ $backgroundUrl = asset('images/bali.jpg');
 <section class="ftco-section bg-light">
 	<div class="container">
 		<div class="row justify-content-start mb-5 pb-3">
+			<div class="col-md-12">
+				<h2 class="mb-4 text-4xl font-bold">Popular Destinations</h2>
+			</div>
 		</div>
-	</div>
-	<div class="container-fluid">
 		<div class="row">
-			@foreach($destinations as $destination)
-			<div class="col-sm col-md-6 col-lg ftco-animate">
+			@foreach ($destinations->take(3) as $d)
+			<div class="col-md-4 ftco-animate">
 				<div class="destination">
-					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" 
-					   style="background-image: url({{ asset('images/' . $destination->image) }});">
+					<a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+						style="background-image: url({{ asset('images/' . ($d->image ?? 'kuta.jpg')) }}); 
+                               height: 300px;
+                               background-size: cover;
+                               background-position: center;">
 						<div class="icon d-flex justify-content-center align-items-center">
 							<span class="icon-search2"></span>
 						</div>
@@ -141,15 +145,15 @@ $backgroundUrl = asset('images/bali.jpg');
 					<div class="text p-3">
 						<div class="d-flex">
 							<div class="one">
-								<h3><a href="#">{{ $destination->title }}</a></h3>
+								<h3><a href="#">{{ $d->title }}</a></h3>
 							</div>
 						</div>
-						<p>{{ $destination->description }}</p>
+						<p>{{ $d->address }}</p>
 						<hr>
-						<p class="bottom-area justify-content-center align-items-center" style="width: 100%;">
+						<p class="bottom-area flex justify-center items-center w-full">
 							<span>
-								<a href="{{ route('destination.single', ['id' => $destination->id]) }}" 
-								   class="btn btn-success">Read More</a>
+								<a href="{{ route('destination.single', ['id' => $d->id]) }}"
+									class="btn btn-success">Read More</a>
 							</span>
 						</p>
 					</div>
