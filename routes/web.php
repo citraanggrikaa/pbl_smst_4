@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/about/data', function () {
-    return view('about');
-});
+Route::get('/about', [HomePageController::class, 'about']);
 
 Route::get('/destination', function () {
     return view('destination');
@@ -38,7 +38,7 @@ Route::get('/destination/{slug}', function ($slug) {
     }
 })->name('destination.single');
 
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SearchController;  
 
 Route::get('/search/destination', [SearchController::class, 'searchDestination'])->name('search.destination');
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pesona Bali</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @stack('css')
+</head>
+
+<body>
+    {{-- @include('partials.navbar') --}}
+    @include('components.navbar')
+    <div class="">
+        @yield('content')
+    </div>
+
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    @include('components.footer')
+</body>
+@stack('script')
+
+</html>
