@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        @for ($i = 0; $i < 21; $i++)
+                        @foreach ($destinations as $d)
                             <div class="col-md-4 ftco-animate">
                                 <div class="destination">
                                     <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
@@ -62,15 +62,15 @@
                                     <div class="text p-3">
                                         <div class="d-flex">
                                             <div class="one">
-                                                <h3><a href="#">Pantai Kuta</a></h3>
+                                                <h3><a href="#">{{ $d->title }}</a></h3>
                                             </div>
                                         </div>
-                                        <p> Terkenal dengan pasir putihnya yang lembut, ombak yang cocok untuk berselancar.
+                                        <p> {{ $d->address }}
                                         </p>
                                         <hr>
                                         <p class="bottom-area flex justify-center items-center w-full">
                                             <span>
-                                                <a href="{{ route('destination.single', ['id' => $i]) }}"
+                                                <a href="{{ route('destination.single', ['id' => $d->id]) }}"
                                                     class="btn btn-success">Read More</a>
                                             </span>
                                         </p>
@@ -78,7 +78,9 @@
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
+
+
 
 
                     </div>

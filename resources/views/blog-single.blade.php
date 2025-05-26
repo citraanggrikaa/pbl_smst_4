@@ -33,10 +33,10 @@
         <div class="text-center">
 
             {{-- Judul Destinasi --}}
-            <h1 class="text-4xl font-bold mb-2">{{ $title }}</h1>
+            <h1 class="text-4xl font-bold mb-2">{{ $destination->title }}</h1>
 
             {{-- Alamat Destinasi --}}
-            <h5 class="text-lg text-gray-600 mb-6">{{ $address }}</h5>
+            <h5 class="text-lg text-gray-600 mb-6">{{ $destination->address }}</h5>
         </div>
 
         {{-- Gambar Destinasi --}}
@@ -49,7 +49,7 @@
 
         {{-- Deskripsi --}}
         <div class="text-justify text-gray-700 leading-relaxed mb-24">
-            <p>{{ $created_at }} {{ $desc }} </p>
+            <p>{{ $destination->created_at }} {{ $destination->desc }} </p>
         </div>
     </main>
 
