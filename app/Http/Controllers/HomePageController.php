@@ -6,6 +6,22 @@ use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
+    public function home()
+    {
+       
+        return view('home');
+    }
+
+    public function destination()
+    {
+        return view('destination');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
     public function about()
     {
         $data = [
