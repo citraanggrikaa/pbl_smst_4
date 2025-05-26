@@ -48,7 +48,7 @@
             <i class="fas fa-envelope" style="color:#007bff; margin-right: 8px;"></i>
             Email
           </h4>
-          <p>jelajahnusantara@gmail.com</p>
+          <p>pesonabali@gmail.com</p>
         </div>
       </div>
       <div class="card contact-card" style="width: 220px;">
@@ -57,7 +57,7 @@
             <i class="fas fa-globe" style="color:#6f42c1; margin-right: 8px;"></i>
             Website
           </h4>
-          <p>jelajahnusantara.com</p>
+          <p>pesonabali.com</p>
         </div>
       </div>
     </div>
