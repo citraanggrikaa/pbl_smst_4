@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Destination extends Model
 {
-    use HasFactory;
-
-    protected $table = 'destinations'; // opsional jika tabelnya tidak sesuai plural
-    protected $fillable = ['title', 'description', 'image'];
+    protected $table = 'destinations';
+    protected $guarded = ['id'];
 }
