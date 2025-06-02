@@ -103,7 +103,7 @@
  style="font-size: 1.2rem;">Home</a></li>
  <li class="nav-item active"><a href="{{ url('/about') }}" class="nav-link text-dark"
  style="font-size: 1.2rem;">About</a></li>
- <li class="nav-item active"><a href="{{ url('/destination') }}" class="nav-link text-dark"
+ <li class="nav-item active"><a href="{{ url('/destinations') }}" class="nav-link text-dark"
  style="font-size: 1.2rem;">Destination</a></li>
  <li class="nav-item active"><a href="{{ url('/contact') }}" class="nav-link text-dark"
  style="font-size: 1.2rem;">Contact</a></li>

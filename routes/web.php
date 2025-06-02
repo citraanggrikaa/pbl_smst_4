@@ -8,7 +8,7 @@ Route::get('/', [HomePageController::class, 'home']);
 
 Route::get('/about', [HomePageController::class, 'about']);
 
-Route::get('/destination', [HomePageController::class, 'destinations']);
+Route::get('/destinations', [HomePageController::class, 'destinations']);
 
 Route::get('/contact', [HomePageController::class, 'contact']);
 
