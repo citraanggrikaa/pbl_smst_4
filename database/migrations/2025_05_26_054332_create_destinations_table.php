@@ -16,6 +16,7 @@ class CreateDestinationsTable extends Migration
             $table->string('title');
             $table->string('address');
             $table->text('desc');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -27,4 +28,5 @@ class CreateDestinationsTable extends Migration
     {
         Schema::dropIfExists('destinations');
     }
-};
+}
+;
