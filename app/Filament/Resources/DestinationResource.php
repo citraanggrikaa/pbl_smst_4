@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Log;
 
 class DestinationResource extends Resource
 {
@@ -46,6 +47,7 @@ class DestinationResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->sortable()
@@ -57,9 +59,8 @@ class DestinationResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Image Preview') 
-                    ->square() // or use height() or width()
-                    ->disk('public'),
+                    ->label('Image Preview')
+                    ->square(), // or use height() or width()
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
