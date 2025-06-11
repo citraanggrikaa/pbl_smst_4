@@ -70,7 +70,7 @@
 		</div>
 	</nav> --}}
 
- <nav class="navbar navbar-expand-lg ftco-navbar-light"
+ <nav class="navbar navbar-expand-lg ftco-navbar-dark"
      style="
     backdrop-filter: blur(10px);             /* Efek blur */
     -webkit-backdrop-filter: blur(10px);     /* Untuk Safari */
