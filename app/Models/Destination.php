@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Destination extends Model
 {
     protected $table = 'destinations';
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'title',
+        'address',
+        'desc',
+        'data_detail',
+        'image',
+        'embedding', // <-- TAMBAHKAN INI
+    ];
 }

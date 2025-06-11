@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
+use App\Jobs\ProcessEmbeddingJob;
 use App\Models\Destination;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,10 +13,12 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Model;
 use Log;
 
 class DestinationResource extends Resource
 {
+
     protected static ?string $model = Destination::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -32,9 +35,15 @@ class DestinationResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpan('full'),
-                Forms\Components\Textarea::make('desc')
+                Forms\Components\RichEditor::make('desc')
+                    ->label('Deskripsi Singkat (untuk web)')
                     ->required()
-                    ->columnSpan('full'),
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('data_detail')
+                    ->label('Data Detail (untuk referensi AI)')
+                    ->required()
+                    ->rows(10)
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->directory('destination-images') // Optional: directory to store images
