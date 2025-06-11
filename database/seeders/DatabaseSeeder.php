@@ -125,14 +125,14 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
-        foreach ($destinations as $destination) {
-            Destination::create([
-                'title' => $destination['title'],
-                'address' => $destination['address'],
-                'desc' => $destination['desc'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
+        // foreach ($destinations as $destination) {
+        //     Destination::create([
+        //         'title' => $destination['title'],
+        //         'address' => $destination['address'],
+        //         'desc' => $destination['desc'],
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ]);
+        // }
     }
 }

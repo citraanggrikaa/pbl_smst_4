@@ -16,6 +16,8 @@ class CreateDestinationsTable extends Migration
             $table->string('title');
             $table->string('address');
             $table->text('desc');
+            $table->text('data_detail');
+            $table->addColumn('vector', 'embedding', ['dimensions' => 768])->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
