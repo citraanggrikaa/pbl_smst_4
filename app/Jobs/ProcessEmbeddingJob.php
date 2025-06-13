@@ -16,15 +16,28 @@ class ProcessEmbeddingJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected int $destinationId; // <-- TAMBAHKAN BARIS INI
+    protected int $destinationId;
+
+    /**
+     * Berapa kali job boleh dicoba sebelum dianggap gagal.
+     * @var int
+     */
+    public $tries = 5;
+
+    public $backoff = [60, 60, 60, 60, 60]; // Coba lagi setelah 1 menit, lalu 2 menit
 
     /**
      * Create a new job instance.
      */
-    public function __construct(int $destinationId)
+    public function __construct(Destination|int $destination)
     {
-        // $this->destination = $destination;
-        $this->destinationId = $destinationId;
+        // Jika yang dikirim adalah objek Model, ambil ID-nya.
+        // Jika yang dikirim sudah berupa ID, langsung gunakan.
+        if ($destination instanceof Destination) {
+            $this->destinationId = $destination->id;
+        } else {
+            $this->destinationId = $destination;
+        }
     }
 
     /**
@@ -57,6 +70,10 @@ class ProcessEmbeddingJob implements ShouldQueue
 
                 // Gunakan objek $destination untuk update, atau DB::table seperti sebelumnya
                 $destination->update(['embedding' => $embeddingString]);
+
+                // $embeddingVector = $response->json('embedding');
+                // $destination->embedding = $embeddingVector;
+                // $destination->save();
 
                 Log::info("Sukses meng-update embedding untuk destinasi ID: {$destination->id}");
             } else {

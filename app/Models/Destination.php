@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Pgvector\Laravel\HasNeighbors;
+use Pgvector\Laravel\Vector;
 
 class Destination extends Model
 {
+    use HasNeighbors;
+    
     protected $table = 'destinations';
-    protected $fillable = [
-        'title',
-        'address',
-        'desc',
-        'data_detail',
-        'image',
-        'embedding', // <-- TAMBAHKAN INI
-    ];
+
+    protected $guarded = ['id'];
+
+    protected $casts = ['embedding' => Vector::class];
 }
