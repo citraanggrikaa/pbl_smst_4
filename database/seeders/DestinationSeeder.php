@@ -2,48 +2,80 @@
 
 namespace Database\Seeders;
 
-use DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Destination;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DestinationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-   public function run(): void
+    public function run(): void
     {
-        $destinations = [
-            ['title' => 'Pantai Kuta', 'address' => 'Kuta, Badung', 'desc' => 'Pantai populer dengan pasir putih dan sunset yang menawan.'],
-            ['title' => 'Tanah Lot', 'address' => 'Tabanan', 'desc' => 'Pura di atas batu karang yang dikelilingi laut saat pasang.'],
-            ['title' => 'Ubud Monkey Forest', 'address' => 'Ubud, Gianyar', 'desc' => 'Hutan lindung dengan ratusan kera dan pura suci.'],
-            ['title' => 'Tegallalang Rice Terrace', 'address' => 'Tegallalang, Gianyar', 'desc' => 'Pemandangan sawah terasering yang indah.'],
-            ['title' => 'Pura Ulun Danu Beratan', 'address' => 'Bedugul, Tabanan', 'desc' => 'Pura ikonik di tepi Danau Beratan.'],
-            ['title' => 'Pantai Pandawa', 'address' => 'Kutuh, Badung', 'desc' => 'Pantai tersembunyi dengan tebing kapur dan air jernih.'],
-            ['title' => 'Garuda Wisnu Kencana', 'address' => 'Ungasan, Badung', 'desc' => 'Taman budaya dengan patung raksasa dewa Wisnu.'],
-            ['title' => 'Pantai Sanur', 'address' => 'Sanur, Denpasar', 'desc' => 'Pantai tenang dengan pemandangan matahari terbit.'],
-            ['title' => 'Tirta Empul', 'address' => 'Tampaksiring, Gianyar', 'desc' => 'Pura dengan kolam suci untuk ritual penyucian.'],
-            ['title' => 'Pantai Jimbaran', 'address' => 'Jimbaran, Badung', 'desc' => 'Pantai dengan restoran seafood tepi pantai.'],
-            ['title' => 'Pura Lempuyang', 'address' => 'Karangasem', 'desc' => 'Pura dengan “Gate of Heaven” dan latar Gunung Agung.'],
-            ['title' => 'Danau Batur', 'address' => 'Kintamani, Bangli', 'desc' => 'Danau di kaki Gunung Batur dengan udara sejuk.'],
-            ['title' => 'Lovina Beach', 'address' => 'Buleleng', 'desc' => 'Pantai utara Bali terkenal untuk melihat lumba-lumba.'],
-            ['title' => 'Pantai Nusa Dua', 'address' => 'Nusa Dua, Badung', 'desc' => 'Resor mewah dengan pantai pasir putih dan ombak tenang.'],
-            ['title' => 'Air Terjun Sekumpul', 'address' => 'Buleleng', 'desc' => 'Air terjun indah yang tersembunyi di utara Bali.'],
-            ['title' => 'Goa Gajah', 'address' => 'Bedulu, Gianyar', 'desc' => 'Situs arkeologi gua kuno dengan ukiran batu.'],
-            ['title' => 'Pura Besakih', 'address' => 'Karangasem', 'desc' => 'Pura terbesar dan terpenting di Bali.'],
-            ['title' => 'Bukit Campuhan', 'address' => 'Ubud, Gianyar', 'desc' => 'Jalur hiking dengan pemandangan bukit dan sawah.'],
-            ['title' => 'Pantai Dreamland', 'address' => 'Pecatu, Badung', 'desc' => 'Pantai indah dengan pasir putih dan ombak besar.'],
-            ['title' => 'Pantai Blue Lagoon', 'address' => 'Padangbai, Karangasem', 'desc' => 'Spot snorkeling dengan air biru jernih.'],
-        ];
+        DB::disableQueryLog();
+        DB::table('destinations')->truncate();
 
-        foreach ($destinations as $destination) {
-            DB::table('destinations')->insert([
-                'title' => $destination['title'],
-                'address' => $destination['address'],
-                'desc' => $destination['desc'],
-                'created_at' => now(),
-                'updated_at' => now(),
+        // Menggunakan file CSV baru yang bersih
+        $csvFile = fopen(database_path('seeders/csv/destinasi_bali.csv'), 'r');
+        
+        // Lewati baris header
+        fgetcsv($csvFile); 
+
+        $this->command->getOutput()->progressStart();
+
+        // Membaca file dengan delimiter koma (,)
+        while (($row = fgetcsv($csvFile, 2000, ',')) !== false) {
+            // Lewati baris yang kosong atau tidak valid
+            if (empty($row) || !isset($row[0])) {
+                continue;
+            }
+
+            // Memetakan data dari CSV ke variabel (indeks sekarang pasti benar)
+            // 0:title, 1:category, 2:address, 3:description, 4:facilities, 5:opening_hours, 6:ticket_price, 7:image_url
+            $title        = $row[0];
+            $category     = $row[1];
+            $address      = $row[2];
+            $description  = $row[3];
+            $facilities   = $row[4];
+            $openingHours = $row[5];
+            $ticketPrice  = $row[6];
+            $imageUrl     = $row[7];
+
+            // 1. Membuat kolom 'desc' dengan format Markdown untuk ditampilkan di web
+            $descMarkdown = "## Deskripsi\n\n<p>" . e($description) . "</p>\n\n";
+            if ($facilities) {
+                $descMarkdown .= "### Fasilitas\n<ul>\n";
+                foreach (explode(',', $facilities) as $facility) { 
+                    $descMarkdown .= "<li>" . e(trim($facility)) . "</li>\n";
+                }
+                $descMarkdown .= "</ul>\n\n";
+            }
+            if ($openingHours) {
+                $descMarkdown .= "### Jam Buka\n<p>" . e($openingHours) . "</p>\n\n";
+            }
+            if ($ticketPrice) {
+                $descMarkdown .= "### Harga Tiket Masuk\n<p>" . e($ticketPrice) . "</p>";
+            }
+
+            // 2. Membuat kolom 'data_detail' untuk semantic search (gabungan semua data teks)
+            $dataDetail = "Nama: " . $title . ". Kategori: " . $category . ". Alamat: " . $address . ". Deskripsi: " . $description . ". Fasilitas yang tersedia: " . $facilities . ".";
+            $dataDetail = preg_replace('/\s+/', ' ', $dataDetail);
+
+            // 3. Membuat record baru di database
+            Destination::create([
+                'title'       => $title,
+                'address'     => $address,
+                'desc'        => $descMarkdown,
+                'data_detail' => $dataDetail,
+                'image'       => $imageUrl,
+                'embedding'   => null,
             ]);
+            
+            $this->command->getOutput()->progressAdvance();
         }
+
+        $this->command->getOutput()->progressFinish();
+        fclose($csvFile);
     }
 }
