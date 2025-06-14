@@ -12,7 +12,7 @@ Route::get('/destinations', [HomePageController::class, 'destinations']);
 
 Route::get('/contact', [HomePageController::class, 'contact']);
 
-Route::get('/destination/{id}', [HomePageController::class, 'single'])->name('destination.single');
+Route::get('/destination/{id}', [HomePageController::class, 'single'])->name('destination.single')->where('destination', '[0-9]+') ;
 
 
 
@@ -36,9 +36,10 @@ Route::get('/register', function () {
 
 use App\Http\Controllers\SearchController;  
 
-Route::get('/search/destination', [SearchController::class, 'searchDestination'])->name('search.destination');
+// Route::get('/search/destination', [SearchController::class, 'searchDestination'])->name('search.destination');
 
 
+Route::get('/search', [SearchController::class, 'handleSearch'])->name('search');
 
 
 
