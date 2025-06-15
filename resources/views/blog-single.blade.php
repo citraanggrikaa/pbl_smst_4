@@ -5,6 +5,67 @@
 @section('content')
     @push('css')
         <style>
+            /* GANTI CSS AVATAR LAMA ANDA DENGAN YANG INI */
+
+            #ai-avatar {
+                width: 180px;
+                /* Ukuran bisa disesuaikan */
+                height: 180px;
+                /* Ganti 'nama-file-gambar-anda.png' dengan nama file yang Anda simpan */
+                background-image: url("{{ asset('images/avatar_diah_sprite.png') }}");
+                background-size: cover;
+                /* Memastikan gambar pas */
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+                border: 4px solid #fff;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                /* Transisi untuk animasi yang mulus */
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Kelas ini akan ditambahkan/dihapus oleh JavaScript saat AI berbicara */
+            #ai-avatar.is-speaking {
+                /* Menjalankan animasi 'pulse' */
+                animation: pulse-breathing 2s infinite ease-in-out;
+            }
+
+            /* Definisi animasi 'pulse-breathing' */
+            @keyframes pulse-breathing {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                50% {
+                    transform: scale(1.05);
+                    /* Sedikit membesar */
+                    box-shadow: 0 8px 25px rgba(75, 143, 222, 0.4);
+                    /* Bayangan berwarna saat 'aktif' */
+                }
+
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            /* Tambahkan ini di dalam tag <style> Anda */
+
+            /* Gaya untuk placeholder saat AI sedang berbicara */
+            .ai-bubble .speaking-indicator {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 0;
+            }
+
+            .ai-bubble .wave-bar {
+                background-color: #888;
+                /* Warna berbeda untuk animasi di dalam bubble */
+                height: 20px;
+            }
+
             /* CSS untuk Animasi Gelombang Suara */
             .wave-bar {
                 display: inline-block;
@@ -96,7 +157,7 @@
                 width: 350px;
                 /* Ukuran default untuk mobile */
                 max-width: 90%;
-                height: 500px;
+                height: 700px;
                 /* Ukuran default untuk mobile */
                 background-color: white;
                 z-index: 999;
@@ -161,17 +222,25 @@
 
     <div id="ai-chat-window" class="shadow-lg rounded">
 
-        <div class="p-3 d-flex justify-content-between align-items-center"
+        {{-- Ganti bagian header chat yang lama --}}
+        <div class="p-3 d-flex flex-column justify-content-center align-items-center"
             style="background-color: #001f3f; color: white; border-top-left-radius: 0.25rem; border-top-right-radius: 0.25rem;">
+
+            {{-- Elemen Avatar Baru --}}
+            <div id="ai-avatar" class="mb-2"></div>
+
             <h6 class="mb-0">Pemandu Wisata Pribadi Anda</h6>
-            <button id="close-ai-btn" type="button" class="close" style="color: white; opacity: 1;">
+            <button id="close-ai-btn" type="button" class="close"
+                style="color: white; opacity: 1; position: absolute; top: 10px; right: 15px;">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
 
         <div id="ai-chat-body" class="p-3" style="flex-grow: 1; overflow-y: auto;">
+            {{-- Gelembung chat sambutan awal --}}
             <div class="ai-bubble">Halo! Ada yang bisa saya bantu ceritakan tentang {{ $destination->title }}?</div>
         </div>
+        {{-- ... sisa kode tidak berubah ... --}}
 
         <div id="ai-chat-footer" class="p-3 text-center d-flex flex-column align-items-center justify-content-center"
             style="border-top: 1px solid #eee;">
@@ -213,113 +282,124 @@
 
         {{-- Deskripsi --}}
         <div class="text-justify text-gray-700 leading-relaxed mb-24">
-            <p>{{ $destination->created_at }} {{ $destination->desc }} </p>
+            <p>{{ $destination->created_at }} {!! $destination->desc !!} </p>
         </div>
     </main>
 
     @push('script')
-        <!-- Scripts -->
+        // ... (semua tag script dari asset Anda biarkan seperti semula) ...
         <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
-        <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
-        <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
-        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('js/aos.js') }}"></script>
-        <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-        <script src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
-        <script src="{{ asset('js/scrollax.min.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="{{ asset('js/google-map.js') }}"></script>
+        {{-- ... sisanya ... --}}
         <script src="{{ asset('js/main.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
+
+        {{-- GANTI SEMUA LOGIKA JAVASCRIPT LAMA ANDA DENGAN YANG DI BAWAH INI --}}
         <script>
-            // Membungkus semua logika di dalam DOMContentLoaded
             document.addEventListener('DOMContentLoaded', function() {
 
-                // ========================================================
-                // LOGIKA UNTUK ASISTEN SUARA AI
-                // ========================================================
 
-                // 1. Ambil semua elemen UI yang kita butuhkan
+
+                // ========================================================
+                // ELEMEN UI
+                // ========================================================
+                const aiAvatar = document.getElementById('ai-avatar');
                 const startAiBtn = document.getElementById('start-ai-btn');
                 const closeAiBtn = document.getElementById('close-ai-btn');
                 const aiChatWindow = document.getElementById('ai-chat-window');
                 const aiChatBody = document.getElementById('ai-chat-body');
                 const aiStatusText = document.getElementById('ai-status-text');
                 const soundWaveAnimation = document.getElementById('sound-wave-animation');
+                const askMicBtn = document.getElementById('ask-mic-btn');
 
-                // 2. Ambil data konteks dari halaman Blade
-                // Sekarang aman untuk mengambil elemen ini karena DOM sudah siap
+                // ========================================================
+                // KONTEKS DARI HALAMAN
+                // ========================================================
                 const destinationTitle = document.querySelector('h1').textContent;
                 const destinationDesc = document.querySelector('.text-justify p').textContent;
 
-                // 3. Inisialisasi Web Speech API (webkitSpeechRecognition)
+                // ========================================================
+                // INISIALISASI SPEECH RECOGNITION API
+                // ========================================================
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                if (SpeechRecognition) {
-                    const recognition = new SpeechRecognition();
-                    recognition.lang = 'id-ID'; // Set bahasa ke Indonesia
-                    recognition.interimResults = false;
-                    recognition.continuous = false; // Berhenti merekam setelah ada jeda
 
-                    // === Event Listeners untuk UI ===
-
-                    startAiBtn.addEventListener('click', () => {
-                        aiChatWindow.style.display = 'flex';
-                        startAiBtn.style.display = 'none';
-                    });
-
-                    closeAiBtn.addEventListener('click', () => {
-                        aiChatWindow.style.display = 'none';
-                        startAiBtn.style.display = 'block';
-                    });
-
-                    document.getElementById('ask-mic-btn').addEventListener('click', () => {
-                        try {
-                            recognition.start();
-                        } catch (e) {
-                            console.error("Recognition bisa jadi sudah berjalan.", e);
-                        }
-                    });
-
-                    // === Event Listeners untuk Speech Recognition ===
-
-                    recognition.onstart = () => {
-                        aiStatusText.textContent = 'Sedang mendengarkan...';
-                        soundWaveAnimation.style.display = 'block';
-                    };
-
-                    recognition.onend = () => {
-                        aiStatusText.textContent = 'Tekan untuk bertanya lagi';
-                        soundWaveAnimation.style.display = 'none';
-                    };
-
-                    recognition.onerror = (event) => {
-                        aiStatusText.textContent = 'Maaf, saya tidak menangkap suara Anda. Coba lagi.';
-                        console.error('Speech recognition error:', event.error);
-                    };
-
-                    recognition.onresult = (event) => {
-                        const transcript = event.results[0][0].transcript;
-                        addBubbleToChat(transcript, 'user');
-                        askTheGuide(transcript);
-                    };
-
-                } else {
-                    // Beri tahu user jika browser tidak mendukung
-                    aiStatusText.textContent = 'Browser Anda tidak mendukung pengenalan suara.';
+                // Periksa dukungan browser sebelum melanjutkan
+                if (!SpeechRecognition) {
+                    aiStatusText.textContent = 'Browser Anda tidak mendukung fitur suara.';
+                    askMicBtn.disabled = true;
                     console.error("Speech Recognition tidak didukung oleh browser ini.");
+                    return; // Hentikan eksekusi jika tidak didukung
                 }
 
-                // === Fungsi-fungsi Helper ===
+                const recognition = new SpeechRecognition();
+                recognition.lang = 'id-ID';
+                recognition.interimResults = false;
+                recognition.continuous = false;
 
-                async function askTheGuide(promptText) {
-                    aiStatusText.textContent = 'Sedang memproses jawaban...';
+                // ========================================================
+                // EVENT LISTENERS UNTUK UI
+                // ========================================================
+                startAiBtn.addEventListener('click', () => {
+                    aiChatWindow.style.display = 'flex';
+                    startAiBtn.style.display = 'none';
+                });
+
+                closeAiBtn.addEventListener('click', () => {
+                    aiChatWindow.style.display = 'none';
+                    startAiBtn.style.display = 'block';
+                });
+
+                askMicBtn.addEventListener('click', () => {
+                    try {
+                        recognition.start();
+                    } catch (e) {
+                        console.error("Recognition bisa jadi sudah berjalan.", e);
+                    }
+                });
+
+
+                // ========================================================
+                // EVENT LISTENERS UNTUK SPEECH RECOGNITION
+                // ========================================================
+                recognition.onstart = () => {
+                    aiStatusText.textContent = 'Sedang mendengarkan...';
+                    askMicBtn.disabled = true; // Nonaktifkan tombol saat mendengarkan
+                    soundWaveAnimation.style.display = 'flex';
+                };
+
+                recognition.onend = () => {
+                    aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                    askMicBtn.disabled = false; // Aktifkan kembali tombol
                     soundWaveAnimation.style.display = 'none';
+                };
+
+                recognition.onerror = (event) => {
+                    if (event.error === 'no-speech') {
+                        aiStatusText.textContent = 'Tidak ada suara terdeteksi. Silakan coba lagi.';
+                    } else {
+                        aiStatusText.textContent = 'Terjadi error. Coba lagi.';
+                    }
+                    console.error('Speech recognition error:', event.error);
+                };
+
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    addBubbleToChat(transcript, 'user');
+                    askTheGuide(transcript);
+                };
+
+
+                // ========================================================
+                // FUNGSI-FUNGSI UTAMA
+                // ========================================================
+
+                /**
+                 * Mengirim pertanyaan ke API dan mengelola respons.
+                 * @param {string} promptText - Teks pertanyaan dari user.
+                 */
+                async function askTheGuide(promptText) {
+                    aiStatusText.textContent = 'AI sedang berpikir...';
+                    // Buat gelembung chat placeholder untuk AI
+                    const aiBubble = createAiPlaceholderBubble();
+
                     const payload = {
                         prompt: promptText,
                         context: {
@@ -327,6 +407,7 @@
                             description: destinationDesc
                         }
                     };
+
                     try {
                         const response = await fetch('http://127.0.0.1:8001/voice-process', {
                             method: 'POST',
@@ -335,225 +416,126 @@
                             },
                             body: JSON.stringify(payload)
                         });
-                        if (!response.ok) {
-                            throw new Error(`API Error: ${response.statusText}`);
-                        }
+
+                        if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+
                         const result = await response.json();
+
                         if (result.status === 'success') {
                             const textAnswer = result.data.text_answer;
                             const base64Audio = result.data.audio_base64;
-                            addBubbleToChat(textAnswer, 'ai');
+
+                            // Perbarui status dan mulai putar audio
+                            aiStatusText.textContent = 'AI sedang menjawab...';
                             if (base64Audio && base64Audio !== "dev_mode_audio_disabled") {
-                                playAudio(base64Audio);
+                                // Kirim gelembung AI dan teks jawaban ke fungsi audio
+                                playAudio(base64Audio, aiBubble, textAnswer);
+                            } else {
+                                // Jika tidak ada audio, langsung tampilkan teks
+                                fillAiBubble(aiBubble, textAnswer);
+                                aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
                             }
                         } else {
-                            addBubbleToChat(`Maaf, terjadi kesalahan: ${result.message}`, 'ai');
+                            fillAiBubble(aiBubble, `Maaf, terjadi kesalahan: ${result.message}`);
                         }
+
                     } catch (error) {
                         console.error('Error calling API:', error);
-                        addBubbleToChat(
-                            'Waduh, sepertinya ada masalah koneksi ke pemandu wisata saya. Coba sesaat lagi ya.',
-                            'ai');
+                        fillAiBubble(aiBubble, 'Waduh, sepertinya ada masalah koneksi. Coba sesaat lagi ya.');
                     }
                 }
 
+                /**
+                 * Menambahkan gelembung chat ke UI.
+                 * @param {string} text - Teks untuk ditampilkan.
+                 * @param {'user' | 'ai'} sender - Pengirim pesan.
+                 */
                 function addBubbleToChat(text, sender) {
                     const bubble = document.createElement('div');
                     bubble.textContent = text;
                     bubble.classList.add(sender === 'user' ? 'user-bubble' : 'ai-bubble');
                     aiChatBody.appendChild(bubble);
+                    scrollToBottom();
+                }
+
+                /**
+                 * Membuat gelembung chat AI dengan animasi "sedang berbicara".
+                 * @returns {HTMLElement} Elemen gelembung AI yang baru dibuat.
+                 */
+                function createAiPlaceholderBubble() {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('ai-bubble');
+                    // Ini adalah animasi gelombang suara yang kita masukkan ke dalam bubble
+                    bubble.innerHTML = `
+                    <div class="speaking-indicator">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                `;
+                    aiChatBody.appendChild(bubble);
+                    scrollToBottom();
+                    return bubble; // Kembalikan elemen bubble agar bisa dimanipulasi nanti
+                }
+
+                /**
+                 * Mengisi gelembung AI yang sudah ada dengan teks jawaban.
+                 * @param {HTMLElement} bubble - Elemen gelembung AI yang akan diisi.
+                 * @param {string} text - Teks jawaban akhir.
+                 */
+                function fillAiBubble(bubble, text) {
+                    bubble.innerHTML = ''; // Hapus animasi
+                    bubble.textContent = text; // Isi dengan teks
+                }
+
+                /**
+                 * Memainkan audio dari Base64 dan mengisi bubble setelah selesai.
+                 * @param {string} base64String - Audio dalam format base64.
+                 * @param {HTMLElement} bubble - Gelembung chat AI untuk diisi setelah audio selesai.
+                 * @param {string} finalText - Teks yang akan ditampilkan di gelembung.
+                 */
+                /**
+                 * Memainkan audio dari Base64, mengontrol animasi avatar, dan mengisi bubble.
+                 * @param {string} base64String - Audio dalam format base64.
+                 * @param {HTMLElement} bubble - Gelembung chat AI untuk diisi setelah audio selesai.
+                 * @param {string} finalText - Teks yang akan ditampilkan di gelembung.
+                 */
+                function playAudio(base64String, bubble, finalText) {
+                    const audioUrl = `data:audio/mp3;base64,${base64String}`;
+                    const audio = new Audio(audioUrl);
+
+                    // SEBELUM audio diputar
+                    aiAvatar.classList.add('is-speaking'); // Mulai animasi berbicara
+
+                    audio.play();
+
+                    // SETELAH audio selesai diputar
+                    audio.onended = () => {
+                        aiAvatar.classList.remove('is-speaking'); // Hentikan animasi
+                        fillAiBubble(bubble, finalText);
+                        aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                    };
+
+                    // JIKA GAGAL memutar audio
+                    audio.onerror = () => {
+                        console.error("Gagal memutar audio.");
+                        aiAvatar.classList.remove('is-speaking'); // Pastikan animasi berhenti jika ada error
+                        fillAiBubble(bubble, `(Gagal memutar suara) ${finalText}`);
+                        aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                    }
+                }
+                /**
+                 * Fungsi untuk scroll otomatis ke bawah.
+                 */
+                function scrollToBottom() {
                     aiChatBody.scrollTop = aiChatBody.scrollHeight;
                 }
 
-                function playAudio(base64String) {
-                    const audioUrl = "data:audio/mp3;base64," + base64String;
-                    const audio = new Audio(audioUrl);
-                    audio.play();
-                }
-
-            }); // <-- Jangan lupa tanda kurung penutupnya
-        </script>
-        <script>
-            document.getElementById('toggleSearch').addEventListener('click', function() {
-                const bar = document.getElementById('searchBar');
-                bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
-            });
-
-            // ========================================================
-            // LOGIKA UNTUK ASISTEN SUARA AI
-            // ========================================================
-
-            // 1. Ambil semua elemen UI yang kita butuhkan
-            const startAiBtn = document.getElementById('start-ai-btn');
-            const closeAiBtn = document.getElementById('close-ai-btn');
-            const aiChatWindow = document.getElementById('ai-chat-window');
-            const aiChatBody = document.getElementById('ai-chat-body');
-            const aiStatusText = document.getElementById('ai-status-text');
-            const soundWaveAnimation = document.getElementById('sound-wave-animation');
-
-            // 2. Ambil data konteks dari halaman Blade
-            // Kita akan mengambilnya langsung dari elemen yang sudah ada saat diperlukan
-            const destinationTitle = document.querySelector('h1').textContent;
-            const destinationDesc = document.querySelector('.text-justify p').textContent;
-
-            // 3. Inisialisasi Web Speech API (webkitSpeechRecognition)
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'id-ID'; // Set bahasa ke Indonesia
-            recognition.interimResults = false;
-            recognition.continuous = false; // Berhenti merekam setelah ada jeda (sesuai permintaan Anda)
-
-            // === Event Listeners untuk UI ===
-
-            // Tampilkan jendela chat saat tombol FAB ditekan
-            startAiBtn.addEventListener('click', () => {
-                aiChatWindow.style.display = 'flex';
-                startAiBtn.style.display = 'none'; // Sembunyikan tombol FAB
-            });
-
-            // Sembunyikan jendela chat saat tombol close ditekan
-            closeAiBtn.addEventListener('click', () => {
-                aiChatWindow.style.display = 'none';
-                startAiBtn.style.display = 'block'; // Tampilkan lagi tombol FAB
-            });
-
-            // Mulai mendengarkan saat area footer (atau tombol lain) ditekan
-            document.getElementById('ask-mic-btn').addEventListener('click', () => {
-                try {
-                    recognition.start();
-                } catch (e) {
-                    console.error("Recognition already started.", e);
-                }
-            });
-
-            // === Event Listeners untuk Speech Recognition ===
-
-            recognition.onstart = () => {
-                aiStatusText.textContent = 'Sedang mendengarkan...';
-                soundWaveAnimation.style.display = 'block';
-            };
-
-            recognition.onend = () => {
-                aiStatusText.textContent = 'Tekan untuk bertanya lagi';
-                soundWaveAnimation.style.display = 'none';
-            };
-
-            recognition.onerror = (event) => {
-                aiStatusText.textContent = 'Maaf, saya tidak menangkap suara Anda. Coba lagi.';
-                console.error('Speech recognition error:', event.error);
-            };
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-
-                // Tampilkan pertanyaan user di chat
-                addBubbleToChat(transcript, 'user');
-
-                // Kirim data ke API FastAPI
-                askTheGuide(transcript);
-            };
-
-            // === Fungsi-fungsi Helper ===
-
-            // Fungsi untuk memanggil API FastAPI Anda
-            async function askTheGuide(promptText) {
-                aiStatusText.textContent = 'Sedang memproses jawaban...';
-                soundWaveAnimation.style.display = 'none';
-
-                const payload = {
-                    prompt: promptText,
-                    context: {
-                        title: destinationTitle,
-                        description: destinationDesc
-                    }
-                };
-
-                try {
-                    // Ganti URL ini jika API Anda berjalan di port atau alamat lain
-                    const response = await fetch('http://127.0.0.1:8001/voice-process', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`API Error: ${response.statusText}`);
-                    }
-
-                    const result = await response.json();
-
-                    if (result.status === 'success') {
-                        const textAnswer = result.data.text_answer;
-                        const base64Audio = result.data.audio_base64;
-
-                        // Tampilkan jawaban AI
-                        addBubbleToChat(textAnswer, 'ai');
-
-                        // Mainkan audio jika tidak dalam dev mode
-                        if (base64Audio && base64Audio !== "dev_mode_audio_disabled") {
-                            playAudio(base64Audio);
-                        }
-
-                    } else {
-                        addBubbleToChat(`Maaf, terjadi kesalahan: ${result.message}`, 'ai');
-                    }
-
-                } catch (error) {
-                    console.error('Error calling API:', error);
-                    addBubbleToChat('Waduh, sepertinya ada masalah koneksi ke pemandu wisata saya. Coba sesaat lagi ya.',
-                        'ai');
-                }
-            }
-
-            // Fungsi untuk menambahkan balon chat ke UI
-            function addBubbleToChat(text, sender) {
-                const bubble = document.createElement('div');
-                bubble.textContent = text;
-                bubble.classList.add(sender === 'user' ? 'user-bubble' : 'ai-bubble');
-                aiChatBody.appendChild(bubble);
-                // Auto-scroll ke bawah
-                aiChatBody.scrollTop = aiChatBody.scrollHeight;
-            }
-
-            // Fungsi untuk memainkan audio dari Base64
-            function playAudio(base64String) {
-                const audioUrl = "data:audio/mp3;base64," + base64String;
-                const audio = new Audio(audioUrl);
-                audio.play();
-            }
+            }); // Akhir dari DOMContentLoaded
         </script>
 
-        <style>
-            .ai-bubble,
-            .user-bubble {
-                padding: 10px 15px;
-                border-radius: 20px;
-                margin-bottom: 10px;
-                max-width: 85%;
-                word-wrap: break-word;
-            }
-
-            .ai-bubble {
-                background-color: #f1f0f0;
-                align-self: flex-start;
-                text-align: left;
-            }
-
-            .user-bubble {
-                background-color: #007bff;
-                color: white;
-                align-self: flex-end;
-                margin-left: auto;
-                /* Mendorong bubble ke kanan */
-                text-align: left;
-            }
-
-            #ai-chat-body {
-                display: flex;
-                flex-direction: column;
-            }
-        </style>
+        {{-- Hapus <style> duplikat di bawah jika ada, cukup satu di atas --}}
     @endpush
 @endsection
