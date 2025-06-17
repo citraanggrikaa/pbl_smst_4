@@ -38,3 +38,6 @@ RUN chown -R application:application /app/storage /app/bootstrap/cache
 # Aplikasi akan berjalan di port internal yang disediakan Render
 
 CMD ["/usr/local/bin/runner"]
+
+
+# test commit
