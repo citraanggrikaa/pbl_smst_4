@@ -31,19 +31,35 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/gwk.jpeg');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
-                data-scrollax-parent="true">
-                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
-                </div>
+  <div class="hero-wrap js-fullheight" style="background-image: url('images/gwk.jpeg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+      data-scrollax-parent="true">
+      <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+        <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
 
-            </div>
-        </div>
+        <!-- Search Bar -->
+     <form action="#" class="search-destination-form d-flex justify-content-center mt-4">
+  <div class="form-group d-flex" style="max-width: 600px; width: 100%;">
+    <input type="text" class="form-control form-control-lg"
+      placeholder="Search..."
+      style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
+    
+    <button type="submit"
+      class="d-flex align-items-center justify-content-center"
+      style="background-color: white; border: none; border-top-right-radius: 30px; border-bottom-right-radius: 30px; padding: 0 20px;">
+      <i class="fas fa-search" style="color: #d6336c;"></i>
+    </button>
+  </div>
+</form>
+
+
+
+      </div>
     </div>
-
+  </div>
+</div>
 
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
