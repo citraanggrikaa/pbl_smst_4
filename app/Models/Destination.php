@@ -14,5 +14,5 @@ class Destination extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = ['embedding' => Vector::class];
+    // protected $casts = ['embedding' => Vector::class];
 }
