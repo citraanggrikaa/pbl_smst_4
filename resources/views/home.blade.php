@@ -137,7 +137,9 @@
                 /* Tinggi lebih besar untuk desktop */
                 bottom: 110px;
                 right: 30px;
+
             }
+
         }
     </style>
 
@@ -206,60 +208,10 @@
         </div>
     </div>
 
-
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row d-md-flex">
-                <div class="col-md-6 ftco-animate img about-image" style="background-image: url(images/bg1.jpg);">
-                </div>
-                <div class="col-md-6 ftco-animate p-md-5">
-                    <div class="row">
-                        <div class="col-md-12 nav-link-wrap mb-5">
-                            <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist"
-                                aria-orientation="vertical">
-                            </div>
-                        </div>
-                        <div class="col-md-12 d-flex align-items-center">
-
-                            <div class="tab-content ftco-animate" id="v-pills-tabContent">
-
-                                <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
-                                    aria-labelledby="v-pills-whatwedo-tab">
-                                    <div>
-                                        <h1 class="mb-4">About Us</h1>
-                                        <p style="text-align: justify;">
-                                            Kami adalah tim yang berkomitmen untuk menghadirkan pengalaman pencarian wisata
-                                            yang inovatif dan efisien. Dengan teknologi full-text search, Anda dapat
-                                            menemukan informasi tempat wisata berdasarkan nama, lokasi, kategori, atau
-                                            bahkan kata kunci spesifik yang Anda inginkan.
-                                        </p>
-                                        <p style="text-align: justify;">
-                                            Platform kami dirancang untuk memberikan kemudahan dalam menemukan destinasi
-                                            wisata yang sesuai dengan preferensi Anda. Dengan fitur pencarian yang canggih,
-                                            Anda dapat menjelajahi berbagai tempat menarik di Bali dengan cepat dan mudah.
-                                        </p>
-                                        <p style="text-align: justify;">
-                                            Tim kami terdiri dari para ahli di bidang teknologi informasi dan pariwisata,
-                                            yang bekerja sama untuk memberikan pengalaman terbaik bagi pengguna. Kami
-                                            percaya bahwa setiap perjalanan adalah kesempatan untuk menciptakan kenangan tak
-                                            terlupakan, dan kami ingin membantu Anda mewujudkannya.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
     <section class="ftco-section bg-light">
         <div class="container">
             <div class="row justify-content-start mb-5 pb-3">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <h2 class="mb-4 text-4xl font-bold">Popular Destinations</h2>
                 </div>
             </div>
@@ -297,6 +249,40 @@
             </div>
         </div>
     </section>
+
+<section>  
+<div class="container my-5">
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-8 text-center">
+      <h2 class="text-3xl fw-bold mb-2">Gallery</h2>
+      <p class="text-muted">Explore our photo collection from various destinations</p>
+    </div>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm">
+        <img src="images/monkey.jpg" class="card-img-top rounded" alt="Image 1">
+      </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm">
+        <img src="images/jatiluwih.jpg" class="card-img-top rounded" alt="Image 2">
+      </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm">
+        <img src="images/penglipuran.jpeg" class="card-img-top rounded" alt="Image 3">
+      </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <div class="card border-0 shadow-sm">
+        <img src="images/ubud.jpeg" class="card-img-top rounded" alt="Image 4">
+      </div>
+    </div>
+  </div>
+</div>
+</section>    
 
     @push('script')
         <!-- Scripts -->

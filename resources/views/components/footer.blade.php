@@ -1,49 +1,59 @@
-<footer class="ftco-footer ftco-bg-dark ftco-section">
+<footer class="ftco-footer ftco-bg-dark ftco-section py-4 text-white">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Pesona Bali</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+    <div class="row mb-4 justify-content-between">
+      <!-- Kolom 1 -->
+      <div class="col-md-4">
+        <div class="ftco-footer-widget mb-3" style="text-align:left;">
+          <h2 class="ftco-heading-2" style="font: size 2.2xl;; font-weight:700; margin-bottom:32px;">Pesona Bali</h2>
+          <p class="small text-white" style="font: size 2xl;;">
+            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+          </p>
+          <ul class="ftco-footer-social list-unstyled mt-3">
+            <li class="ftco-animate d-inline-block me-3">
+              <a href="#" class="social-icon" style="font: size 2xl;;"><span class="icon-twitter"></span></a>
+            </li>
+            <li class="ftco-animate d-inline-block me-3">
+              <a href="#" class="social-icon" style="font: size 2xl;;"><span class="icon-facebook"></span></a>
+            </li>
+            <li class="ftco-animate d-inline-block">
+              <a href="#" class="social-icon" style="font: size 2xl;;"><span class="icon-instagram"></span></a>
+            </li>
           </ul>
         </div>
       </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4 ml-md-5">
-          <h2 class="ftco-heading-2">Information</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">Home</a></li>
-            <li><a href="#" class="py-2 d-block">About Us</a></li>
-            <li><a href="#" class="py-2 d-block">Destination</a></li>
-            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+
+      <!-- Kolom 2 -->
+      <div class="col-md-3">
+        <div class="ftco-footer-widget mb-3" style="text-align:left;">
+          <h2 class="ftco-heading-2" style="font: size 2.2xl;; font-weight:700; margin-bottom:32px;">Information</h2>
+          <ul class="list-unstyled small">
+            <li><a href="#" class="py-1 d-block text-white" style="font: size 2xl;;">Home</a></li>
+            <li><a href="#" class="py-1 d-block text-white" style="font: size 2xl;;">About Us</a></li>
+            <li><a href="#" class="py-1 d-block text-white" style="font: size 2xl;;">Destination</a></li>
+            <li><a href="#" class="py-1 d-block text-white" style="font: size 2xl;;">Contact Us</a></li>
           </ul>
         </div>
       </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Have a Questions?</h2>
-          <div class="block-23 mb-3">
-            <ul>
-              <li><span class="icon icon-map-marker"></span><span class="text">Nangka street, Denpasar, Bali, Indonesia</span></li>
-              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 812 345 678 910</span></a></li>
-              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">pesonabali@gmail.com</span></a></li>
-            </ul>
-          </div>
+
+      <!-- Kolom 3 -->
+      <div class="col-md-3">
+        <div class="ftco-footer-widget mb-3" style="text-align:left;">
+          <h2 class="ftco-heading-2" style="font: size 2.2xl;; font-weight:700; margin-bottom:32px;">Have a Questions?</h2>
+          <ul class="list-unstyled small">
+            <li class="mb-2" style="font: size 2xl;;"><span class="icon icon-map-marker me-2"></span> Nangka street, Denpasar, Bali</li>
+            <li class="mb-2" style="font: size 2xl;;"><span class="icon icon-phone me-2"></span> +62 812 345 678 910</li>
+            <li style="font: size 2xl;;"><span class="icon icon-envelope me-2"></span> pesonabali@gmail.com</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>This project is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://JelajahNusantara.com" target="_blank">Pesona Bali</a></p>
+
+    <div class="row pt-3 mt-3">
+      <div class="col-md-12 text-center small">
+         <p class="mb-0" style="font: size 2xl;;">This project is made with <i class="icon-heart text-danger"></i> by 
+          <a href="https://JelajahNusantara.com" target="_blank" class="text-white" style="font: size 2xl;;">Pesona Bali</a>
+        </p>
       </div>
     </div>
   </div>
 </footer>
-
-
-
-
