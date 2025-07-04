@@ -41,5 +41,9 @@ use App\Http\Controllers\SearchController;
 
 Route::get('/search', [SearchController::class, 'handleSearch'])->name('search');
 
+use App\Http\Controllers\ContactController;
+
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
 
 

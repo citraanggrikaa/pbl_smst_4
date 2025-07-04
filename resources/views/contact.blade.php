@@ -39,56 +39,51 @@
       </div>
     </div>
 
-<!-- Tambahkan ini di bagian <head> halaman kamu -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-<section style="padding: 40px 0; background-color: #f0f0f0;">
-  <div style="max-width: 1140px; margin: 0 auto; padding: 0 15px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-      <h2>Contact Information</h2>
-    </div>
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-      <div class="card contact-card" style="width: 220px;">
-        <div class="card-body" style="text-align: center;">
-          <h4 class="card-title">
-            <i class="fas fa-map-marker-alt" style="color:#ff5e14; margin-right: 8px;"></i>
-            Address
-          </h4>
-          <p>Nangka street, Denpasar, Bali, Indonesia</p>
+<section style="padding: 60px 0 0 0; background-color: transparent;">
+  <div style="max-width: 700px; margin: 0 auto; padding: 0 15px; text-align: center;">
+    <h2 style="font-size: 38px; color: #222; font-weight: bold; margin-bottom: 10px;">Contact Us</h2>
+    <p style="color: #444; font-size: 18px; margin-bottom: 32px;">Any questions or remarks? Just write us a message!</p>
+    <form action="{{ route('contact.send') }}" method="POST" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 0;">
+      @csrf
+      <input type="text" name="Name" placeholder="Enter your Name" style="flex:1 1 220px; min-width: 200px; max-width: 300px; padding: 12px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 16px; outline: none; margin-bottom: 8px;" required>
+      <input type="text" name="Suggestion" placeholder="Enter your Suggestion" style="flex:1 1 180px; min-width: 160px; max-width: 220px; padding: 12px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 16px; outline: none; margin-bottom: 8px;" required>
+      <div style="flex-basis: 100%;"></div>
+      <button type="submit" style="width: 100%; max-width: 400px; margin: 0 auto; background: #232830; color: #fff; border: 2px solid #232830; border-radius: 8px; padding: 12px 0; font-size: 24px; font-weight: 500; letter-spacing: 1px; cursor: pointer; transition: background 0.2s;">SUBMIT</button>
+    </form>
+  </div>
+  <div style="background: transparent; padding: 20px 0 0 0; margin-top: 0;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0; padding: 20px;">
+      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
+          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-envelope" style="font-size: 28px; color: #fff;"></i>
+          </div>
         </div>
+        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">EMAIL</h4>
+        <div style="color: #444; font-size: 15px;">pesonabali@gmail.com</div>
       </div>
-      <div class="card contact-card" style="width: 220px;">
-        <div class="card-body" style="text-align: center;">
-          <h4 class="card-title">
-            <i class="fas fa-phone" style="color:#28a745; margin-right: 8px;"></i>
-            Phone
-          </h4>
-          <p>+62 812 345 678 910</p>
-        </div>          
-      </div>
-      <div class="card contact-card" style="width: 220px;">
-        <div class="card-body" style="text-align: center;">
-          <h4 class="card-title">
-            <i class="fas fa-envelope" style="color:#007bff; margin-right: 8px;"></i>
-            Email
-          </h4>
-          <p>pesonabali@gmail.com</p>
+      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
+          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-phone" style="font-size: 28px; color: #fff;"></i>
+          </div>
         </div>
+        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">PHONE</h4>
+        <div style="color: #444; font-size: 15px;">+62 812 3456 7890</div>
       </div>
-      <div class="card contact-card" style="width: 220px;">
-        <div class="card-body" style="text-align: center;">
-          <h4 class="card-title">
-            <i class="fas fa-globe" style="color:#6f42c1; margin-right: 8px;"></i>
-            Website
-          </h4>
-          <p>pesonabali.com</p>
+      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
+          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-map-marker-alt" style="font-size: 28px; color: #fff;"></i>
+          </div>
         </div>
+        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">OUR OFFICE LOCATION</h4>
+        <div style="color: #444; font-size: 15px;">Nangka street, Denpasar, Bali</div>
       </div>
     </div>
   </div>
 </section>
+
 
 
  @push('script')
