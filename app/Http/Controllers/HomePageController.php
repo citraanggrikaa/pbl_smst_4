@@ -24,7 +24,7 @@ class HomePageController extends Controller
 
     public function destinations()
     {
-        $destinations = Destination::all();
+        $destinations = Destination::paginate(6); // 6 destinasi per halaman
         return view('destination', compact('destinations'));
     }
 

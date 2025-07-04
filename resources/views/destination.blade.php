@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="{{ asset('css/pagination-custom.css') }}">
     @endpush
 
     <!-- Font Awesome CDN -->
@@ -67,7 +68,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         @foreach ($destinations as $d)
-                            <div class="col-md-4 ftco-animate">
+                            <div class="col-md-4 ftco-animate mb-4">
                                 <div class="destination">
                                     <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
                                         style="background-image: url(images/kuta.jpg);">
@@ -95,10 +96,23 @@
                                 </div>
                             </div>
                         @endforeach
-
-
-
-
+                        <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 gap-2">
+                            <div class="w-100 w-md-auto d-flex justify-content-center justify-content-md-center">
+                                @php
+                                    $elements = $destinations->links()->elements[0] ?? [];
+                                @endphp
+                                <!-- Custom pagination style moved to external CSS file -->
+                                <nav style="width:100%; display:flex; justify-content:center;">
+                                    <ul class="pagination mb-0" style="margin-left:auto; margin-right:auto;">
+                                        @foreach ($destinations->getUrlRange(1, $destinations->lastPage()) as $page => $url)
+                                            <li class="page-item{{ $page == $destinations->currentPage() ? ' active' : '' }}">
+                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
