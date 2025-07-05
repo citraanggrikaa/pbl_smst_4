@@ -32,9 +32,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @endpush
 
-    <button id="open-dify-chat-btn" class="btn btn-primary rounded-circle shadow" title="Tanya Pemandu Wisata AI">
-        <i class="fas fa-comments fa-lg"></i>
-    </button>
 
     <div id="dify-chat-window" class="shadow-lg rounded">
 
