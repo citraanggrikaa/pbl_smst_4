@@ -32,13 +32,16 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/gwk.jpeg');">
+
+    <div class="hero-wrap py-5" style="">
+
         <div class="overlay"></div>
         <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+            <div class="row no-gutters py-5 slider-text align-items-center justify-content-center"
                 data-scrollax-parent="true">
                 <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
+                        style="color: #001f3f">Destination</h1>
 
                     <!-- Search Bar -->
                     <form action="#" class="search-destination-form d-flex justify-content-center mt-4">
@@ -47,8 +50,8 @@
                                 style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
 
                             <button type="submit" class="d-flex align-items-center justify-content-center"
-                                style="background-color: white; border: none; border-top-right-radius: 30px; border-bottom-right-radius: 30px; padding: 0 20px;">
-                                <i class="fas fa-search" style="color: #d6336c;"></i>
+                                style="background-color: rgb(231, 252, 219); border: none; border-top-right-radius: 30px; border-bottom-right-radius: 30px; padding: 0 20px;">
+                                <i class="fas fa-search" style="color: #001f3f;"></i>
                             </button>
                         </div>
                     </form>
@@ -69,7 +72,9 @@
                             <div class="col-md-4 ftco-animate mb-4">
                                 <div class="destination">
                                     <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                        style="background-image: url(images/kuta.jpg);">
+                                        style="background-image: url(images/kuta.jpg); height: 300px;
+                               background-size: cover;
+                               background-position: center;">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
@@ -86,7 +91,7 @@
                                         <p class="bottom-area flex justify-center items-center w-full">
                                             <span>
                                                 <a href="{{ route('destination.single', ['id' => $d->id]) }}"
-                                                    class="btn btn-success">Read More</a>
+                                                    class="">Read More</a>
                                             </span>
                                         </p>
 
