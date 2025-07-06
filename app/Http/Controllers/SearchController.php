@@ -15,73 +15,58 @@ class SearchController extends Controller
      */
     public function handleSearch(Request $request)
     {
-        // 1. Validasi input
-        $request->validate(['query' => 'required|string|max:255']);
         $query = $request->input('query');
+        $destinations = null;
 
-        // =========================================================
-        // LANGKAH 1: PENCARIAN KEYWORD BIASA (CEPAT & EKSPLISIT)
-        // =========================================================
-        Log::info("Memulai pencarian keyword untuk: '{$query}'");
-        $keywordResults = Destination::where('title', 'LIKE', "%{$query}%")
-            ->orWhere('desc', 'LIKE', "%{$query}%")
-            ->take(5) // Ambil 5 hasil teratas
-            ->get();
+        if ($query) {
+            // =========================================================
+            // JIKA ADA QUERY, LAKUKAN PENCARIAN HIBRIDA
+            // (Logika ini dipindahkan dari SearchController)
+            // =========================================================
+            Log::info("Memulai pencarian keyword untuk: '{$query}'");
 
-        $semanticResults = collect(); // Siapkan koleksi kosong untuk hasil semantik
+            $keywordResults = Destination::where(function ($builder) use ($query) {
+                $lowerQuery = strtolower($query);
+                $builder->whereRaw('LOWER(title) LIKE ?', ["%{$lowerQuery}%"])
+                    // PERBAIKAN: Tambahkan tanda kutip ganda di sekitar "desc"
+                    ->orWhereRaw('LOWER("desc") LIKE ?', ["%{$lowerQuery}%"]);
+            })
+                ->get();
 
-        // =========================================================
-        // LANGKAH 2: PENCARIAN SEMANTIK JIKA HASIL KURANG (PINTAR & KONTEKSTUAL)
-        // =========================================================
+            $semanticResults = collect();
 
-        // Jika hasil keyword kurang dari 3 (atau 0), jalankan pencarian semantik
-        if ($keywordResults->count() < 3) {
-            try {
-                Log::info("Hasil keyword sedikit, memulai pencarian semantik untuk: '{$query}'");
-
-                // Ubah query pengguna menjadi vektor
-                $embeddingVector = $this->getEmbeddingForQuery($query);
-
-                // Lakukan pencarian nearest neighbor
-                // PERBAIKAN: Urutan argumen diubah sesuai pesan error
-                // Format yang benar adalah: (nama_kolom, tipe_jarak, vektor)
-                $semanticResults = Destination::query()
-                    ->nearestNeighbors('embedding', $embeddingVector, Distance::Cosine)
-                    ->take(5)
-                    ->get();
-
-                Log::info("Pencarian semantik berhasil.");
-
-            } catch (\Exception $e) {
-                // Jika service AI gagal, kita tidak perlu menghentikan proses.
-                // Cukup catat errornya dan lanjutkan dengan hasil keyword yang sudah ada.
-                Log::error("Gagal melakukan pencarian semantik: " . $e->getMessage());
-                // $semanticResults akan tetap menjadi koleksi kosong.
+            if ($keywordResults->count() < 5) {
+                try {
+                    Log::info("Hasil keyword sedikit, memulai pencarian semantik untuk: '{$query}'");
+                    $embeddingVector = $this->getEmbeddingForQuery($query);
+                    $semanticResults = Destination::query()
+                        ->nearestNeighbors('embedding', $embeddingVector, Distance::Cosine)
+                        ->take(10)
+                        ->get();
+                    Log::info("Pencarian semantik berhasil.");
+                } catch (\Exception $e) {
+                    Log::error("Gagal melakukan pencarian semantik: " . $e->getMessage());
+                }
             }
+
+            // Gabungkan hasil dan hapus duplikat
+            $destinations = $keywordResults
+                ->merge($semanticResults)
+                ->unique('id');
+
+        } else {
+            // =========================================================
+            // JIKA TIDAK ADA QUERY, TAMPILKAN SEMUA DESTINASI
+            // =========================================================
+            $destinations = Destination::paginate(9);
         }
 
-        // =========================================================
-        // LANGKAH 3: GABUNGKAN HASIL DAN TAMPILKAN
-        // =========================================================
-
-        // Gabungkan hasil keyword dengan hasil semantik,
-        // lalu hapus duplikat berdasarkan 'id'.
-        $finalResults = $keywordResults
-            ->merge($semanticResults)
-            ->unique('id');
-
-        // Kembalikan view dengan hasil pencarian yang sudah digabung
-        // return view('search-results', [
-        //     'query' => $query,
-        //     'results' => $finalResults
-        // ]);
-
-        return response()->json([
-            'query' => $query,
-            'results' => $finalResults
+        // Kembalikan view dengan data yang sesuai
+        return view('destination', [
+            'destinations' => $destinations,
+            'query' => $query // Kirim query ke view untuk ditampilkan di input
         ]);
     }
-
     /**
      * Fungsi helper untuk memanggil service embedding.
      */
