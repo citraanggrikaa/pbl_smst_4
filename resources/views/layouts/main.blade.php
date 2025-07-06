@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     @stack('css')
+    
+<style>
+          body{
+            background-color: #c7c5c57e;
+          }
+        </style>
 </head>
 
 <body>

@@ -185,18 +185,19 @@
 
                     <!-- Search Bar -->
                     <div class="d-flex justify-content-center mt-5 px-3">
+                        <!-- Search Bar -->
                         <form action="{{ route('search') }}" method="GET" class="w-100" style="max-width: 700px;">
-                            <div class="d-flex align-items-center px-4 py-2 mx-auto"
-                                style="background: white; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); height: 54px;">
+                            <div class="form-group d-flex" style="max-width: 600px; width: 100%;">
+                                <input type="text" class="form-control form-control-lg" placeholder="Search..."
+                                    style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
 
-                                <input type="text" id="searchInput" name="query" class="form-control border-0"
-                                    placeholder="Search..." style="border-radius: 30px; box-shadow: none; outline: none;">
-
-                                <button type="submit" class="btn p-0 border-0 bg-transparent">
-                                    <i class="fas fa-search text-danger"></i>
+                                <button type="submit" class="d-flex align-items-center justify-content-center"
+                                    style="background-color: rgb(231, 252, 219); border: none; border-top-right-radius: 30px; border-bottom-right-radius: 30px; padding: 0 20px;">
+                                    <i class="fas fa-search" style="color: #001f3f;"></i>
                                 </button>
                             </div>
                         </form>
+
                     </div>
                     <!-- End Search Bar -->
 
@@ -217,7 +218,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{ asset('images/' . ($d->image ?? 'kuta.jpg')) }}); 
+                                style="background-image: url({{ asset('images/' . 'kuta.jpg') }}); 
                                height: 300px;
                                background-size: cover;
                                background-position: center;">
