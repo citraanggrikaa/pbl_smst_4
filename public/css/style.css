@@ -7817,7 +7817,7 @@ h1, h2, h3, h4, h5,
           .destination .text .bottom-area span:last-child {
             margin-left: 5px; } }
         .destination .text .bottom-area span:last-child a {
-          background: #8bc34a;
+          background: #001f3f;
           color: #fff;
           -webkit-border-radius: 4px;
           -moz-border-radius: 4px;
@@ -7825,7 +7825,7 @@ h1, h2, h3, h4, h5,
           border-radius: 4px;
           padding: 3px 5px; }
           .destination .text .bottom-area span:last-child a:hover {
-            background: #8bc34a;
+            background: #001f3f;
             color: #fff; }
 
 .hotel-img {
