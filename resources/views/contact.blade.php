@@ -27,66 +27,83 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @endpush
-    
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/gwk.jpeg');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Us</h1>
-          </div>
-        </div>
-      </div>
-    </div>
 
-<section style="padding: 60px 0 0 0; background-color: transparent;">
-  <div style="max-width: 700px; margin: 0 auto; padding: 0 15px; text-align: center;">
-    <h2 style="font-size: 38px; color: #222; font-weight: bold; margin-bottom: 10px;">Contact Us</h2>
-    <p style="color: #444; font-size: 18px; margin-bottom: 32px;">Any questions or remarks? Just write us a message!</p>
-    <form action="{{ route('contact.send') }}" method="POST" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 0;">
-      @csrf
-      <input type="text" name="Name" placeholder="Enter your Name" style="flex:1 1 220px; min-width: 200px; max-width: 300px; padding: 12px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 16px; outline: none; margin-bottom: 8px;" required>
-      <input type="text" name="Suggestion" placeholder="Enter your Suggestion" style="flex:1 1 180px; min-width: 160px; max-width: 220px; padding: 12px 16px; border-radius: 20px; border: 1px solid #ddd; font-size: 16px; outline: none; margin-bottom: 8px;" required>
-      <div style="flex-basis: 100%;"></div>
-      <button type="submit" style="width: 100%; max-width: 400px; margin: 0 auto; background: #232830; color: #fff; border: 2px solid #232830; border-radius: 8px; padding: 12px 0; font-size: 24px; font-weight: 500; letter-spacing: 1px; cursor: pointer; transition: background 0.2s;">SUBMIT</button>
-    </form>
-  </div>
-  <div style="background: transparent; padding: 20px 0 0 0; margin-top: 0;">
-    <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0; padding: 20px;">
-      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
-          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-envelope" style="font-size: 28px; color: #fff;"></i>
-          </div>
+    {{-- <div class="hero-wrap py-5" style="background-image: url('images/gwk.jpeg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text py-5 align-items-center justify-content-center"
+                data-scrollax-parent="true">
+                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Us</h1>
+                </div>
+            </div>
         </div>
-        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">EMAIL</h4>
-        <div style="color: #444; font-size: 15px;">pesonabali@gmail.com</div>
-      </div>
-      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
-          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-phone" style="font-size: 28px; color: #fff;"></i>
-          </div>
+    </div> --}}
+
+    <section
+        style="padding: 60px 0; background-image: url('images/gwk.jpeg'); background-size: cover; background-position: center;">
+        <div style="max-width: 700px; margin: 0 auto; padding: 0 15px; text-align: center; background-color: #001f3f93;" class="rounded p-5 ">
+            <h2 style="font-size: 38px; color: #ffffff; font-weight: bold; margin-bottom: 10px;">Contact Us</h2>
+            <p style="color: #ffffff; font-size: 18px; margin-bottom: 32px;">Any questions or remarks? Just write us a
+                message!</p>
+
+            <form action="{{ route('contact.send') }}" method="POST">
+                @csrf
+                <div style="margin-bottom: 16px;">
+                    <input type="text" name="Name" placeholder="Enter your Name"
+                        style="width: 100%; box-sizing: border-box; padding: 12px 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 16px;">
+                    <textarea name="Suggestion" placeholder="Enter your Suggestion"
+                        style="width: 100%; box-sizing: border-box; padding: 12px 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; outline: none; resize: vertical; height: 200px;"></textarea>
+                </div>
+
+                <button type="submit"
+                    style="width: 100%; max-width: 400px; background: #001f3f; color: #fff; border: 2px solid #ffffff; border-radius: 8px; padding: 12px 0; font-size: 24px; font-weight: 500; cursor: pointer; transition: background 0.2s;">
+                    SUBMIT
+                </button>
+            </form>
         </div>
-        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">PHONE</h4>
-        <div style="color: #444; font-size: 15px;">+62 812 3456 7890</div>
-      </div>
-      <div style="flex:1 1 260px; min-width: 220px; background: #f7f7f7; margin: 20px; border-radius: 0 0 0 0; text-align: center; padding: 20px;">
-        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
-          <div style="background: #232830; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <i class="fas fa-map-marker-alt" style="font-size: 28px; color: #fff;"></i>
-          </div>
+
+        <div style="padding: 40px 0 20px 0;">
+            <div
+                style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 15px;">
+
+                <div style="flex: 1 1 280px; background: #f7f7f7; border-radius: 8px; text-align: center; padding: 25px;">
+                    <div
+                        style="display: inline-block; background: #001f3f; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                        <i class="fas fa-envelope" style="font-size: 28px; color: #fff;"></i>
+                    </div>
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">EMAIL</h4>
+                    <div style="color: #444; font-size: 15px;">pesonabali@gmail.com</div>
+                </div>
+
+                <div style="flex: 1 1 280px; background: #f7f7f7; border-radius: 8px; text-align: center; padding: 25px;">
+                    <div
+                        style="display: inline-block; background: #001f3f; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                        <i class="fas fa-phone" style="font-size: 28px; color: #fff;"></i>
+                    </div>
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">PHONE</h4>
+                    <div style="color: #444; font-size: 15px;">+62 812 3456 7890</div>
+                </div>
+
+                <div style="flex: 1 1 280px; background: #f7f7f7; border-radius: 8px; text-align: center; padding: 25px;">
+                    <div
+                        style="display: inline-block; background: #001f3f; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 28px; color: #fff;"></i>
+                    </div>
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">OUR OFFICE LOCATION</h4>
+                    <div style="color: #444; font-size: 15px;">Nangka street, Denpasar, Bali</div>
+                </div>
+
+            </div>
         </div>
-        <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">OUR OFFICE LOCATION</h4>
-        <div style="color: #444; font-size: 15px;">Nangka street, Denpasar, Bali</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
 
- @push('script')
+    @push('script')
         <!-- Scripts -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
