@@ -247,39 +247,39 @@
         </div>
     </section>
 
-<section>  
-<div class="container my-5">
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-8 text-center">
-      <h2 class="text-3xl fw-bold mb-2">Gallery</h2>
-      <p class="text-muted">Explore our photo collection from various destinations</p>
-    </div>
-  </div>
+    <section>
+        <div class="container my-5">
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8 text-center">
+                    <h2 class="text-3xl fw-bold mb-2">Gallery</h2>
+                    <p class="text-muted">Explore our photo collection from various destinations</p>
+                </div>
+            </div>
 
-  <div class="row g-4 justify-content-center">
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-      <div class="card border-0 shadow-sm">
-        <img src="images/monkey.jpg" class="card-img-top rounded" alt="Image 1">
-      </div>
-    </div>
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-      <div class="card border-0 shadow-sm">
-        <img src="images/jatiluwih.jpg" class="card-img-top rounded" alt="Image 2">
-      </div>
-    </div>
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-      <div class="card border-0 shadow-sm">
-        <img src="images/penglipuran.jpeg" class="card-img-top rounded" alt="Image 3">
-      </div>
-    </div>
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-      <div class="card border-0 shadow-sm">
-        <img src="images/ubud.jpeg" class="card-img-top rounded" alt="Image 4">
-      </div>
-    </div>
-  </div>
-</div>
-</section>    
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/monkey.jpg" class="card-img-top rounded" alt="Image 1">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/jatiluwih.jpg" class="card-img-top rounded" alt="Image 2">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/penglipuran.jpeg" class="card-img-top rounded" alt="Image 3">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card border-0 shadow-sm">
+                        <img src="images/ubud.jpeg" class="card-img-top rounded" alt="Image 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     @push('script')
         <!-- Scripts -->
