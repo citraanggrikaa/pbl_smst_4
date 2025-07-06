@@ -261,7 +261,7 @@
         </div>
     </div>
 
-    <main class="container px-3 pt-[20px] pb-5">
+    <main class="container py-5 px-3 pt-[20px] pb-5">
         {{-- Judul & Alamat di Tengah --}}
         <div class="text-center">
 
