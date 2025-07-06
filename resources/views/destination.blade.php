@@ -33,20 +33,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-    <div class="hero-wrap py-5" style="">
-
+    <div class="hero-wrap py-5">
         <div class="overlay"></div>
         <div class="container">
-            <div class="row no-gutters py-5 slider-text align-items-center justify-content-center"
-                data-scrollax-parent="true">
-                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
-                        style="color: #001f3f">Destination</h1>
+            <div class="row no-gutters py-5 slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
 
-                    <!-- Search Bar -->
-                    <form action="#" class="search-destination-form d-flex justify-content-center mt-4">
+                    {{-- Tampilkan judul berdasarkan apakah ini halaman pencarian atau bukan --}}
+
+                    <h1 class="mb-3 bread" style="color: #001f3f">Destination</h1>
+
+
+                    <!-- ================================================== -->
+                    <!-- PERBARUI FORM PENCARIAN INI -->
+                    <!-- ================================================== -->
+                    <form action="{{ route('search') }}" method="GET"
+                        class="search-destination-form d-flex justify-content-center mt-4">
                         <div class="form-group d-flex" style="max-width: 600px; width: 100%;">
-                            <input type="text" class="form-control form-control-lg" placeholder="Search..."
+                            <input type="text" name="query" class="form-control form-control-lg"
+                                placeholder="Search..." value="{{ $query ?? '' }}"
                                 style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
 
                             <button type="submit" class="d-flex align-items-center justify-content-center"
@@ -55,8 +60,7 @@
                             </button>
                         </div>
                     </form>
-
-
+                    <!-- ================================================== -->
 
                 </div>
             </div>
@@ -68,25 +72,21 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        @foreach ($destinations as $d)
+                        @forelse ($destinations as $d)
                             <div class="col-md-4 ftco-animate mb-4">
                                 <div class="destination">
-                                    <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                        style="background-image: url(images/kuta.jpg); height: 300px;
-                               background-size: cover;
-                               background-position: center;">
+                                    <a href="{{ route('destination.single', ['id' => $d->id]) }}"
+                                        class="img img-2 d-flex justify-content-center align-items-center"
+                                        style="background-image: url('/images/kuta.jpg'); height: 300px; background-size: cover; background-position: center;">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
                                     </a>
                                     <div class="text p-3">
-                                        <div class="d-flex">
-                                            <div class="one">
-                                                <h3><a href="#">{{ $d->title }}</a></h3>
-                                            </div>
-                                        </div>
-                                        <p> {{ $d->address }}
-                                        </p>
+                                        <h3><a
+                                                href="{{ route('destination.single', ['id' => $d->id]) }}">{{ $d->title }}</a>
+                                        </h3>
+                                        <p>{{ $d->address }}</p>
                                         <hr>
                                         <p class="bottom-area flex justify-center items-center w-full">
                                             <span>
@@ -94,37 +94,45 @@
                                                     class="">Read More</a>
                                             </span>
                                         </p>
-
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                        <div
-                            class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 gap-2">
-                            <div class="w-100 w-md-auto d-flex justify-content-center justify-content-md-center">
-                                @php
-                                    $elements = $destinations->links()->elements[0] ?? [];
-                                @endphp
-                                <!-- Custom pagination style moved to external CSS file -->
-                                <nav style="width:100%; display:flex; justify-content:center;">
-                                    <ul class="pagination mb-0" style="margin-left:auto; margin-right:auto;">
-                                        @foreach ($destinations->getUrlRange(1, $destinations->lastPage()) as $page => $url)
-                                            <li
-                                                class="page-item{{ $page == $destinations->currentPage() ? ' active' : '' }}">
-                                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </nav>
+                        @empty
+                            <div class="col-12 text-center">
+                                <p>No destinations found.</p>
                             </div>
-                        </div>
+                        @endforelse
+
+                        <!-- ================================================== -->
+                        <!-- HANYA TAMPILKAN PAGINASI JIKA TIDAK SEDANG MENCARI -->
+                        <!-- ================================================== -->
+                        @if (!$query && $destinations instanceof \Illuminate\Pagination\AbstractPaginator)
+                            <div
+                                class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 gap-2">
+                                <div class="w-100 w-md-auto d-flex justify-content-center justify-content-md-center">
+                                    @php
+                                        $elements = $destinations->links()->elements[0] ?? [];
+                                    @endphp
+                                    <!-- Custom pagination style moved to external CSS file -->
+                                    <nav style="width:100%; display:flex; justify-content:center;">
+                                        <ul class="pagination mb-0" style="margin-left:auto; margin-right:auto;">
+                                            @foreach ($destinations->getUrlRange(1, $destinations->lastPage()) as $page => $url)
+                                                <li
+                                                    class="page-item{{ $page == $destinations->currentPage() ? ' active' : '' }}">
+                                                    <a class="page-link"
+                                                        href="{{ $url }}">{{ $page }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </nav>
+                                </div>
+                        @endif
+                        <!-- ================================================== -->
                     </div>
                 </div>
             </div>
-        </div> <!-- .col-md-8 -->
         </div>
-        </div>
-    </section> <!-- .section -->
+    </section>
 
     @push('script')
         <!-- Scripts -->

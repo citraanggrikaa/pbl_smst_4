@@ -188,7 +188,10 @@
                         <!-- Search Bar -->
                         <form action="{{ route('search') }}" method="GET" class="w-100" style="max-width: 700px;">
                             <div class="form-group d-flex" style="max-width: 600px; width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Search..."
+
+                                <!-- TAMBAHKAN name="query" DI SINI -->
+                                <input type="text" name="query" class="form-control form-control-lg"
+                                    placeholder="Search..."
                                     style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
 
                                 <button type="submit" class="d-flex align-items-center justify-content-center"
