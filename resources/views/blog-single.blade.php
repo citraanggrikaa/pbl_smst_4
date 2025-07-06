@@ -287,7 +287,6 @@
     </main>
 
     @push('script')
-        // ... (semua tag script dari asset Anda biarkan seperti semula) ...
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         {{-- ... sisanya ... --}}
         <script src="{{ asset('js/main.js') }}"></script>
