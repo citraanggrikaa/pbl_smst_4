@@ -1,5 +1,5 @@
 .pagination .page-link {
-    color: #7fc241;
+    color: #001f3f;
     border: 1px solid #b7efc5;
     background: #fff;
     font-size: 1.1rem;
@@ -9,11 +9,11 @@
 }
 .pagination .page-item.active .page-link,
 .pagination .page-link:focus {
-    background: #a6e15a !important;
+    background: #001f3fb9 !important;
     color: #fff !important;
-    border-color: #7fc241 !important;
+    border-color: #001f3f !important;
 }
 .pagination .page-link:hover {
-    background: #e2f9e1;
-    color: #7fc241;
+    background: #001f3f38;
+    color: #001f3f;
 }
