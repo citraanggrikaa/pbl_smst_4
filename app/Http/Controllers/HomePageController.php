@@ -25,7 +25,7 @@ class HomePageController extends Controller
     public function destinations()
     {
         $data = [
-            'destinations' => Destination::paginate(2),
+            'destinations' => Destination::paginate(27),
             'query' => null
         ];
     
