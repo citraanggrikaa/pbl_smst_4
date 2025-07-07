@@ -1,5 +1,5 @@
 @php
-    $backgroundUrl = asset('images/bali.jpg');
+    $backgroundUrl = asset('images/bali.webp');
 @endphp
 
 @extends('layouts.main')
@@ -221,7 +221,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{ asset('images/' . 'kuta.jpg') }}); 
+                                style="background-image: url({{ asset('images/' . 'kuta.webp') }}); 
                                height: 300px;
                                background-size: cover;
                                background-position: center;">
@@ -263,22 +263,22 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="card border-0 shadow-sm">
-                        <img src="images/monkey.jpg" class="card-img-top rounded" alt="Image 1">
+                        <img src="images/monkey.webp" class="card-img-top rounded" alt="Image 1">
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="card border-0 shadow-sm">
-                        <img src="images/jatiluwih.jpg" class="card-img-top rounded" alt="Image 2">
+                        <img src="images/jatiluwih.webp" class="card-img-top rounded" alt="Image 2">
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="card border-0 shadow-sm">
-                        <img src="images/penglipuran.jpeg" class="card-img-top rounded" alt="Image 3">
+                        <img src="images/penglipuran.webp" class="card-img-top rounded" alt="Image 3">
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="card border-0 shadow-sm">
-                        <img src="images/ubud.jpeg" class="card-img-top rounded" alt="Image 4">
+                        <img src="images/ubud.webp" class="card-img-top rounded" alt="Image 4">
                     </div>
                 </div>
             </div>

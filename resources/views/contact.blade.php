@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @endpush
 
-    {{-- <div class="hero-wrap py-5" style="background-image: url('images/gwk.jpeg');">
+    {{-- <div class="hero-wrap py-5" style="background-image: url('images/gwk.webp');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text py-5 align-items-center justify-content-center"
@@ -41,7 +41,7 @@
     </div> --}}
 
     <section
-        style="padding: 60px 0; background-image: url('images/gwk.jpeg'); background-size: cover; background-position: center;">
+        style="padding: 60px 0; background-image: url('images/gwk.webp'); background-size: cover; background-position: center;">
         <div style="max-width: 700px; margin: 0 auto; padding: 0 15px; text-align: center; background-color: #001f3f93;" class="rounded p-5 ">
             <h2 style="font-size: 38px; color: #ffffff; font-weight: bold; margin-bottom: 10px;">Contact Us</h2>
             <p style="color: #ffffff; font-size: 18px; margin-bottom: 32px;">Any questions or remarks? Just write us a

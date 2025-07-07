@@ -12,7 +12,7 @@
                 /* Ukuran bisa disesuaikan */
                 height: 180px;
                 /* Ganti 'nama-file-gambar-anda.png' dengan nama file yang Anda simpan */
-                background-image: url("{{ asset('images/avatar_diah_sprite.png') }}");
+                background-image: url("{{ asset('images/avatar_diah_sprite.webp') }}");
                 background-size: cover;
                 /* Memastikan gambar pas */
                 background-position: center;
@@ -274,7 +274,7 @@
 
         {{-- Gambar Destinasi --}}
         <div class="d-flex justify-content-center">
-            <img src="{{ asset('images/kuta.jpg') }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
+            <img src="{{ asset('images/kuta.webp') }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
                 style="max-width: 600px; width: 100%; height: auto;" />
         </div>
 

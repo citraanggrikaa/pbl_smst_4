@@ -29,13 +29,17 @@
     @endpush
 
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/gwk.jpeg') }}');">
+    <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/gwk.webp') }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
                 data-scrollax-parent="true">
                 <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%' }"
+                        style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);">
+                        About Us
+                    </h1>
+
                 </div>
             </div>
         </div>
@@ -45,7 +49,7 @@
         <div class="container">
             <div class="row d-md-flex">
                 <div class="col-md-6 ftco-animate img about-image"
-                    style="background-image: url('{{ asset('images/bg1.jpg') }}');">
+                    style="background-image: url('{{ asset('images/bg1.webp') }}');">
 
                 </div>
                 <div class="col-md-6 ftco-animate p-md-5">
@@ -135,7 +139,7 @@
             });
         </script>
         <script>
-            document.getElementById('toggleSearch').addEventListener('click', function() {
+            document.getElementById('toggleSearch').addEventListener('click', function () {
                 const bar = document.getElementById('searchBar');
                 bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
             });
