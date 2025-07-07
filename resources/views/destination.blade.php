@@ -33,10 +33,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-    <div class="hero-wrap py-5">
+    <div class="hero-wrap py-4">
         <div class="overlay"></div>
         <div class="container">
-            <div class="row no-gutters py-5 slider-text align-items-center justify-content-center">
+            <div class="row no-gutters py-1 slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
 
                     {{-- Tampilkan judul berdasarkan apakah ini halaman pencarian atau bukan --}}
