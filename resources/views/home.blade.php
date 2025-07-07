@@ -260,25 +260,25 @@
                 </div>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="images/monkey.webp" class="card-img-top rounded" alt="Image 1">
+            <div class="row g-3 justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/monkey.webp" class="card-img-top rounded w-100" alt="Image 1" style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="images/jatiluwih.webp" class="card-img-top rounded" alt="Image 2">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/jatiluwih.webp" class="card-img-top rounded w-100" alt="Image 2" style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="images/penglipuran.webp" class="card-img-top rounded" alt="Image 3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/penglipuran.webp" class="card-img-top rounded w-100" alt="Image 3" style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="images/ubud.webp" class="card-img-top rounded" alt="Image 4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="images/ubud.webp" class="card-img-top rounded w-100" alt="Image 4" style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
             </div>
