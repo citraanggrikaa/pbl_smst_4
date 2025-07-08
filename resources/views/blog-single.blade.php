@@ -274,7 +274,7 @@
 
         {{-- Gambar Destinasi --}}
         <div class="d-flex justify-content-center">
-            <img src="{{ asset('images/kuta.webp') }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
+            <img src="{{ asset('images/bali2.webp') }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
                 style="max-width: 600px; width: 100%; height: auto;" />
         </div>
 
@@ -285,6 +285,58 @@
             <p>{{ $destination->created_at }} {!! $destination->desc !!} </p>
         </div>
     </main>
+   @push('script')
+        <!-- Scripts -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+        <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('js/aos.js') }}"></script>
+        <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
+        <script src="{{ asset('js/scrollax.min.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="{{ asset('js/google-map.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script>
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav.navbar');
+                const links = nav.querySelectorAll('.nav-link, .navbar-brand, button');
+
+                if (window.scrollY > 30) {
+                    nav.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                    nav.style.webkitBackdropFilter = 'blur(10px)';
+                    links.forEach(el => {
+                        el.classList.remove('text-dark', 'text-white');
+                        el.style.color = '#001f3f'; // Navy
+                    });
+                } else {
+                    nav.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                    nav.style.webkitBackdropFilter = 'blur(10px)';
+                    links.forEach(el => {
+                        el.style.color = '';
+                        el.classList.remove('text-white');
+                        el.classList.add('text-dark');
+                    });
+                }
+            });
+        </script>
+        <script>
+            document.getElementById('toggleSearch').addEventListener('click', function() {
+                const bar = document.getElementById('searchBar');
+                bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
+            });
+        </script>
+    @endpush
 
     @push('script')
         <script src="{{ asset('js/jquery.min.js') }}"></script>
