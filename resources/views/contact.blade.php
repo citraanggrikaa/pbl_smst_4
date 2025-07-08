@@ -41,7 +41,7 @@
     </div> --}}
 
     <section
-        style="padding: 60px 0; background-image: url('images/gwk.webp'); background-size: cover; background-position: center;">
+        style="padding: 60px 0; background-image: url('images/ubud.webp'); background-size: cover; background-position: center;">
         <div style="max-width: 700px; margin: 0 auto; padding: 0 15px; text-align: center; background-color: #001f3f93;" class="rounded p-5 ">
             <h2 style="font-size: 38px; color: #ffffff; font-weight: bold; margin-bottom: 10px;">Contact Us</h2>
             <p style="color: #ffffff; font-size: 18px; margin-bottom: 32px;">Any questions or remarks? Just write us a
