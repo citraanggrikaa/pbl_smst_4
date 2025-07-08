@@ -1,0 +1,12 @@
+.hero-wrap.custom-bg {
+    background-image: url('/images/ubud.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 320px;
+}
+@media (max-width: 576px) {
+    .hero-wrap.custom-bg {
+        min-height: 220px;
+    }
+}
