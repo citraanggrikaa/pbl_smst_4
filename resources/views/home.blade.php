@@ -221,7 +221,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{ asset('images/' . 'kuta.webp') }}); 
+                                style="background-image: url({{ asset('images/' . 'bali2.webp') }}); 
                                height: 300px;
                                background-size: cover;
                                background-position: center;">
