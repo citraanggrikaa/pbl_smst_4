@@ -27,6 +27,6 @@ class ContactController extends Controller
             }
         );
 
-        return back()->with('success', 'Pesan berhasil dikirim!');
+        return back()->with('success', 'Successfully submitted!.');
     }
 }
