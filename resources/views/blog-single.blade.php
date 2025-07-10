@@ -229,7 +229,7 @@
             {{-- Elemen Avatar Baru --}}
             <div id="ai-avatar" class="mb-2"></div>
 
-            <h6 class="mb-0">Pemandu Wisata Pribadi Anda</h6>
+            <h6 class="mb-0">I'm Kirana, Your Personal Tour Guide</h6>
             <button id="close-ai-btn" type="button" class="close"
                 style="color: white; opacity: 1; position: absolute; top: 10px; right: 15px;">
                 <span aria-hidden="true">&times;</span>
@@ -238,7 +238,7 @@
 
         <div id="ai-chat-body" class="p-3" style="flex-grow: 1; overflow-y: auto;">
             {{-- Gelembung chat sambutan awal --}}
-            <div class="ai-bubble">Halo! Ada yang bisa saya bantu ceritakan tentang {{ $destination->title }}?</div>
+            <div class="ai-bubble">Hello! Can I help you tell me about {{ $destination->title }}?</div>
         </div>
         {{-- ... sisa kode tidak berubah ... --}}
 
@@ -249,7 +249,7 @@
                 <i class="fas fa-microphone"></i>
             </button>
 
-            <div id="ai-status-text" style="color: #888; font-style: italic;">Tekan mikrofon untuk bertanya</div>
+            <div id="ai-status-text" style="color: #888; font-style: italic;">Press the microphone to ask a question</div>
 
             <div id="sound-wave-animation" style="display: none; margin-top: 10px;">
                 <div class="wave-bar"></div>
@@ -274,7 +274,7 @@
 
         {{-- Gambar Destinasi --}}
         <div class="d-flex justify-content-center">
-            <img src="{{ asset('images/bali2.webp') }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
+            <img src="{{ url('storage/'.$destination->image) }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
                 style="max-width: 600px; width: 100%; height: auto;" />
         </div>
 
@@ -417,7 +417,7 @@
                 };
 
                 recognition.onend = () => {
-                    aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                    aiStatusText.textContent = 'Press the microphone to ask a question';
                     askMicBtn.disabled = false; // Aktifkan kembali tombol
                     soundWaveAnimation.style.display = 'none';
                 };
@@ -484,7 +484,7 @@
                             } else {
                                 // Jika tidak ada audio, langsung tampilkan teks
                                 fillAiBubble(aiBubble, textAnswer);
-                                aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                                aiStatusText.textContent = 'Press the microphone to ask a question';
                             }
                         } else {
                             fillAiBubble(aiBubble, `Maaf, terjadi kesalahan: ${result.message}`);
@@ -566,7 +566,7 @@
                     audio.onended = () => {
                         aiAvatar.classList.remove('is-speaking'); // Hentikan animasi
                         fillAiBubble(bubble, finalText);
-                        aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                        aiStatusText.textContent = 'Press the microphone to ask a question';
                     };
 
                     // JIKA GAGAL memutar audio
@@ -574,7 +574,7 @@
                         console.error("Gagal memutar audio.");
                         aiAvatar.classList.remove('is-speaking'); // Pastikan animasi berhenti jika ada error
                         fillAiBubble(bubble, `(Gagal memutar suara) ${finalText}`);
-                        aiStatusText.textContent = 'Tekan mikrofon untuk bertanya';
+                        aiStatusText.textContent = 'Press the microphone to ask a question';
                     }
                 }
                 /**
