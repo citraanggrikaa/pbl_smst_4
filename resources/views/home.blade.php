@@ -33,66 +33,9 @@
     @endpush
 
 
-    <div id="dify-chat-window" class="shadow-lg rounded">
 
-        <div class="">
-            {{-- <h6 class="mb-0">Pemandu Wisata Pribadi Anda</h6> --}}
-            <button id="close-dify-chat-btn" type="button" class="close">
-                <span>&times;</span>
-            </button>
-        </div>
-
-        <div class="chat-body">
-            <iframe src="https://udify.app/chatbot/UvaJDZsX51J9CbpL" style="width: 100%; height: 100%; border: none;"
-                frameborder="0" allow="microphone">
-            </iframe>
-        </div>
-    </div>
 
     <style>
-        /* Gaya untuk Tombol Mengambang (FAB) */
-        #open-dify-chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            z-index: 1000;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        #open-dify-chat-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Gaya untuk Jendela Chat Pop-up */
-        #dify-chat-window {
-            /* Awalnya disembunyikan dan di luar layar */
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 350px;
-            /* Ukuran default untuk mobile */
-            max-width: 90%;
-            height: 500px;
-            /* Ukuran default untuk mobile */
-            background-color: white;
-            z-index: 999;
-            flex-direction: column;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        /* Style untuk membuatnya terlihat saat aktif */
-        #dify-chat-window.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Gaya untuk Header Chat */
         .chat-header {
             background-color: #001f3f;
@@ -118,25 +61,6 @@
             /* Hapus padding agar iframe pas */
             overflow: hidden;
             /* Sembunyikan overflow dari iframe */
-        }
-
-        /* Gaya Responsif untuk Layar Desktop */
-        @media (min-width: 768px) {
-            #open-dify-chat-btn {
-                bottom: 30px;
-                right: 30px;
-            }
-
-            #dify-chat-window {
-                width: 400px;
-                /* Lebar lebih besar untuk desktop */
-                height: 650px;
-                /* Tinggi lebih besar untuk desktop */
-                bottom: 110px;
-                right: 30px;
-
-            }
-
         }
     </style>
 
@@ -221,7 +145,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{ asset('images/' . 'bali2.webp') }}); 
+                                style="background-image: url({{ url('storage/'.$d->image) }}); 
                                height: 300px;
                                background-size: cover;
                                background-position: center;">
@@ -263,22 +187,26 @@
             <div class="row g-3 justify-content-center">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0 shadow-sm h-100">
-                        <img src="images/monkey.webp" class="card-img-top rounded w-100" alt="Image 1" style="object-fit:cover; min-height:160px; max-height:220px;">
+                        <img src="images/monkey.webp" class="card-img-top rounded w-100" alt="Image 1"
+                            style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0 shadow-sm h-100">
-                        <img src="images/jatiluwih.webp" class="card-img-top rounded w-100" alt="Image 2" style="object-fit:cover; min-height:160px; max-height:220px;">
+                        <img src="images/jatiluwih.webp" class="card-img-top rounded w-100" alt="Image 2"
+                            style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0 shadow-sm h-100">
-                        <img src="images/penglipuran.webp" class="card-img-top rounded w-100" alt="Image 3" style="object-fit:cover; min-height:160px; max-height:220px;">
+                        <img src="images/penglipuran.webp" class="card-img-top rounded w-100" alt="Image 3"
+                            style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card border-0 shadow-sm h-100">
-                        <img src="images/ubud.webp" class="card-img-top rounded w-100" alt="Image 4" style="object-fit:cover; min-height:160px; max-height:220px;">
+                        <img src="images/ubud.webp" class="card-img-top rounded w-100" alt="Image 4"
+                            style="object-fit:cover; min-height:160px; max-height:220px;">
                     </div>
                 </div>
             </div>

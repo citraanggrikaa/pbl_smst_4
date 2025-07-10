@@ -71,7 +71,7 @@
                                 <div class="destination">
                                     <a href="{{ route('destination.single', ['id' => $d->id]) }}"
                                         class="img img-2 d-flex justify-content-center align-items-center"
-                                        style="background-image: url('/images/bali2.webp'); height: 300px; background-size: cover; background-position: center;">
+                                        style="background-image: url({{ url('storage/'.$d->image) }}); height: 300px; background-size: cover; background-position: center;">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
