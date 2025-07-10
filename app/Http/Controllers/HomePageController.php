@@ -28,7 +28,7 @@ class HomePageController extends Controller
             'destinations' => Destination::paginate(27),
             'query' => null
         ];
-    
+
 
         return view('destination', $data);
     }
@@ -45,7 +45,7 @@ class HomePageController extends Controller
     public function about()
     {
         $data = [
-            'body' => 'Kami adalah tim yang berkomitmen untuk menghadirkan pengalaman pencarian wisata yang inovatif dan efisien. Dengan teknologi full-text search, Anda dapat menemukan informasi tempat wisata berdasarkan nama, lokasi, kategori, atau bahkan kata kunci spesifik yang Anda inginkan'
+            'body' => 'We are a dedicated team committed to delivering an innovative and efficient travel search experience. With full-text search technology, you can easily find information about tourist destinations based on name, location, category, or even specific keywords that match your interests.'
         ];
         return view('about', $data);
     }

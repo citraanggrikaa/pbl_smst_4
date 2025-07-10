@@ -29,69 +29,42 @@
     @endpush
 
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/gwk.webp') }}');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
-                data-scrollax-parent="true">
-                <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%' }"
-                        style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);">
-                        About Us
-                    </h1>
 
-                </div>
+<section
+    style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('{{ asset('images/bg1.webp') }}'); background-size: cover; background-position: center; padding: 60px 0;">
+    
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center px-4 px-md-5 py-4 py-md-5 shadow-lg"
+        style="background: rgba(255, 255, 255, 0.82); max-width: 1200px; width: 100%; border-radius: 20px; gap: 3rem;">
+        
+        <!-- Gambar -->
+        <div class="rounded shadow"
+            style="background-image: url('{{ asset('images/bg1.webp') }}'); width: 100%; max-width: 340px; height: 440px; background-size: cover; background-position: center;">
+        </div>
+
+        <!-- Teks -->
+        <div class="mt-4 mt-md-0" style="max-width: 700px;">
+            <h2 class="mb-4"
+                style="font-size: 2.2rem; font-weight: bold; color: #fffff; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                About Us
+            </h2>
+            <div style="font-size: 1.05rem; color: #fffff; text-shadow: 0 1px 3px rgba(0,0,0,0.15); font-weight: 500;">
+                <p style="text-align: justify;">
+                    We are a dedicated team committed to delivering an innovative and efficient travel search experience. With full-text search technology, you can easily find information about tourist destinations based on name, location, category, or even specific keywords that match your interests.
+                </p>
+                <p style="text-align: justify;">
+                    Our platform is designed to make it easy for you to discover travel destinations that match your preferences. With advanced search features, you can quickly and easily explore various interesting places in Bali.
+                </p>
+                <p style="text-align: justify;">
+                    Our team consists of experts in information technology and tourism who work together to deliver the best experience for our users. We believe that every journey is an opportunity to create unforgettable memories, and we are here to help you make them happen.
+                </p>
             </div>
         </div>
     </div>
+</section>
 
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row d-md-flex">
-                <div class="col-md-6 ftco-animate img about-image"
-                    style="background-image: url('{{ asset('images/bg1.webp') }}');">
 
-                </div>
-                <div class="col-md-6 ftco-animate p-md-5">
-                    <div class="row">
-                        <div class="col-md-12 nav-link-wrap mb-5">
-                            <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist"
-                                aria-orientation="vertical">
-                            </div>
-                        </div>
-                        <div class="col-md-12 d-flex align-items-center">
 
-                            <div class="tab-content ftco-animate" id="v-pills-tabContent">
 
-                                <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
-                                    aria-labelledby="v-pills-whatwedo-tab">
-                                    <div>
-                                        <h1 class="mb-4">About Us</h1>
-                                        <p style="text-align: justify;">
-                                            {{ $body }}
-                                        </p>
-                                        <p style="text-align: justify;">
-                                            Platform kami dirancang untuk memberikan kemudahan dalam menemukan destinasi
-                                            wisata yang sesuai dengan preferensi Anda. Dengan fitur pencarian yang canggih,
-                                            Anda dapat menjelajahi berbagai tempat menarik di Bali dengan cepat dan mudah.
-                                        </p>
-                                        <p style="text-align: justify;">
-                                            Tim kami terdiri dari para ahli di bidang teknologi informasi dan pariwisata,
-                                            yang bekerja sama untuk memberikan pengalaman terbaik bagi pengguna. Kami
-                                            percaya bahwa setiap perjalanan adalah kesempatan untuk menciptakan kenangan tak
-                                            terlupakan, dan kami ingin membantu Anda mewujudkannya.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
 
     @push('script')
         <!-- Scripts -->
