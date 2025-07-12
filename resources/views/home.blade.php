@@ -1,5 +1,5 @@
 @php
-    $backgroundUrl = asset('images/bali.webp');
+    $backgroundUrl = asset('images/bali3.webp');
 @endphp
 
 @extends('layouts.main')
@@ -103,8 +103,8 @@
                 data-scrollax-parent="true">
                 <div class="col-md-12 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                     <h1 class="mb-4" style="font-size: 48px; color: #001f3f;">
-                        <strong>Selamat Datang Di Pesona Bali</strong><br>
-                        Temukan Keindahan, Ciptakan Kenangan!
+                        <strong>Welcome to Pesona Bali</strong><br>
+                        Discover the Beauty, Create Memories!
                     </h1>
 
                     <!-- Search Bar -->
