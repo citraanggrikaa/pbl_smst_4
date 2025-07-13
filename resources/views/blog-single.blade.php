@@ -139,31 +139,75 @@
             /* ============================================================== */
 
             /* Gaya Dasar untuk Tombol Mikrofon Mengambang */
+            /* Ganti nilai z-index pada CSS Anda dengan yang ini */
+
+            /* 1. Tombol Mikrofon Mengambang */
             #start-ai-btn {
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
                 width: 60px;
                 height: 60px;
-                z-index: 1000;
+                z-index: 1052;
+                /* Nilai paling tinggi agar selalu di atas */
             }
 
-            /* Gaya Dasar untuk Jendela Chat */
+            /* 2. Jendela Chat Utama */
             #ai-chat-window {
                 display: none;
                 position: fixed;
                 bottom: 90px;
                 right: 20px;
                 width: 350px;
-                /* Ukuran default untuk mobile */
                 max-width: 90%;
-                height: 700px;
-                /* Ukuran default untuk mobile */
+                height: 800px !important;
                 background-color: white;
-                z-index: 999;
+                z-index: 1050;
+                /* Di atas navbar */
                 flex-direction: column;
                 transition: all 0.3s ease-in-out;
-                /* Animasi transisi */
+            }
+
+            /* GANTI CSS LAMA ANDA DENGAN YANG INI */
+            #settings-panel {
+                /* KUNCI: Ubah ke 'fixed' agar terikat pada layar, bukan pada chat window */
+                position: fixed;
+
+                /* Pastikan panel menutupi seluruh layar */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(5px);
+                z-index: 1051;
+                /* Pastikan di atas jendela chat */
+
+                /* Gunakan flexbox untuk menengahkan kotak konten */
+                display: none;
+                /* Awalnya tersembunyi */
+                align-items: center;
+                justify-content: center;
+
+                /* Tambahkan padding agar konten tidak menempel di tepi saat keyboard muncul */
+                padding: 20px;
+            }
+
+            #settings-panel .settings-content {
+                background-color: white;
+                padding: 25px;
+                border-radius: 10px;
+
+                /* Jaga agar konten tidak menempel di tepi layar */
+                width: 100%;
+
+                /* Batasi lebar maksimum untuk layar yang lebih besar (tablet/desktop) */
+                max-width: 320px;
+
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+                color: #333;
+                /* Pastikan teks terlihat jelas di background putih */
             }
 
 
@@ -185,6 +229,32 @@
                     /* Tinggi lebih besar untuk desktop */
                     bottom: 100px;
                     right: 30px;
+                }
+
+                /* Tambahkan ini di dalam tag <style> Anda */
+                #settings-panel {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    backdrop-filter: blur(5px);
+                    z-index: 1050;
+                    /* Pastikan di atas konten lain */
+                    display: none;
+                    /* Awalnya tersembunyi */
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                #settings-panel .settings-content {
+                    background-color: white;
+                    padding: 25px;
+                    border-radius: 10px;
+                    width: 90%;
+                    max-width: 300px;
+                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
                 }
             }
         </style>
@@ -222,11 +292,18 @@
 
     <div id="ai-chat-window" class="shadow-lg rounded">
 
-        {{-- Ganti bagian header chat yang lama --}}
+        {{-- GANTI BAGIAN HEADER CHAT LAMA ANDA DENGAN YANG INI --}}
         <div class="p-3 d-flex flex-column justify-content-center align-items-center"
-            style="background-color: #001f3f; color: white; border-top-left-radius: 0.25rem; border-top-right-radius: 0.25rem;">
+            style="background-color: #001f3f; color: white; border-top-left-radius: 0.25rem; border-top-right-radius: 0.25rem; position: relative;">
 
-            {{-- Elemen Avatar Baru --}}
+            {{-- Tombol Pengaturan Bahasa --}}
+            <button id="settings-btn" class="btn btn-sm"
+                style="position: absolute; top: 10px; left: 15px; color: rgb(255, 0, 0); opacity: 0.8;">
+                <i class="fas fa-cog fa-lg"></i>
+            </button>
+
+
+            {{-- Elemen Avatar --}}
             <div id="ai-avatar" class="mb-2"></div>
 
             <h6 class="mb-0">I'm Kirana, Your Personal Tour Guide</h6>
@@ -234,6 +311,39 @@
                 style="color: white; opacity: 1; position: absolute; top: 10px; right: 15px;">
                 <span aria-hidden="true">&times;</span>
             </button>
+        </div>
+
+        {{-- Letakkan ini TEPAT DI BAWAH blok header di atas --}}
+        {{-- Panel Pengaturan Bahasa (Awalnya Tersembunyi) --}}
+        <div id="settings-panel" style="display: none;">
+            <div class="settings-content">
+                <h6 class="text-center mb-3">Language Settings</h6>
+                <div class="form-group">
+                    <label for="language-select">Recognition Language</label>
+                    <select id="language-select" class="form-control">
+                        <option value="id-ID">Indonesia</option>
+                        <option value="en-US">English </option> {{-- (US) --}}
+                        <option value="en-GB">English </option> {{-- (UK) --}}
+                        <option value="es-ES">Español </option> {{-- (España) --}}
+                        <option value="fr-FR">Français </option> {{-- (France) --}}
+                        <option value="de-DE">Deutsch </option> {{-- (Deutschland) --}}
+                        <option value="it-IT">Italiano </option> {{-- (Italia) --}}
+                        <option value="pt-PT">Português </option> {{-- (Portugal) --}}
+                        <option value="nl-NL">Nederlands </option> {{-- (Nederland) --}}
+                        <option value="ru-RU">Русский </option> {{-- (Россия) --}}
+                        <option value="ja-JP">日本語 </option> {{-- (Giappone) --}}
+                        <option value="ko-KR">한국어 </option> {{-- (Corea) --}}
+                        <option value="zh-CN">中文 </option> {{-- (Mandarino, Cina --}}
+                        <option value="zh-TW">中文 </option> {{-- (Mandarino, Taiwan --}}
+                        <option value="ar-SA">العربية </option> {{--  (Arabia Saudita --}}
+                        <option value="hi-IN">हिन्दी </option> {{-- (India) --}}
+                        <option value="th-TH">ไทย </option> {{-- (Thailandia) --}}
+                        <option value="vi-VN">Tiếng Việt </option> {{-- (Vietnam) --}}
+                        <option value="ms-MY">Melayu </option> {{-- (Malesia) --}}
+                    </select>
+                </div>
+                <button id="close-settings-btn" class="btn btn-primary btn-block mt-3">Done</button>
+            </div>
         </div>
 
         <div id="ai-chat-body" class="p-3" style="flex-grow: 1; overflow-y: auto;">
@@ -274,8 +384,8 @@
 
         {{-- Gambar Destinasi --}}
         <div class="d-flex justify-content-center">
-            <img src="{{ url('storage/'.$destination->image) }}" alt="Gambar Destinasi" class="rounded-lg shadow-md mb-4 img-fluid"
-                style="max-width: 600px; width: 100%; height: auto;" />
+            <img src="{{ url('storage/' . $destination->image) }}" alt="Gambar Destinasi"
+                class="rounded-lg shadow-md mb-4 img-fluid" style="max-width: 600px; width: 100%; height: auto;" />
         </div>
 
 
@@ -285,7 +395,7 @@
             <p>{{ $destination->created_at }} {!! $destination->desc !!} </p>
         </div>
     </main>
-   @push('script')
+    @push('script')
         <!-- Scripts -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
@@ -347,7 +457,40 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
 
+                // ========================================================
+                // FUNGSI BANTUAN UNTUK COOKIES
+                // ========================================================
+                /**
+                 * Menyimpan cookie di browser.
+                 * @param {string} name - Nama cookie.
+                 * @param {string} value - Nilai cookie.
+                 * @param {number} days - Jumlah hari sebelum cookie kedaluwarsa.
+                 */
+                function setCookie(name, value, days) {
+                    let expires = "";
+                    if (days) {
+                        const date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                }
 
+                /**
+                 * Mengambil nilai cookie dari browser.
+                 * @param {string} name - Nama cookie yang akan diambil.
+                 * @returns {string|null} Nilai cookie atau null jika tidak ditemukan.
+                 */
+                function getCookie(name) {
+                    const nameEQ = name + "=";
+                    const ca = document.cookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
 
                 // ========================================================
                 // ELEMEN UI
@@ -360,6 +503,11 @@
                 const aiStatusText = document.getElementById('ai-status-text');
                 const soundWaveAnimation = document.getElementById('sound-wave-animation');
                 const askMicBtn = document.getElementById('ask-mic-btn');
+                // Elemen baru untuk pengaturan
+                const settingsBtn = document.getElementById('settings-btn');
+                const settingsPanel = document.getElementById('settings-panel');
+                const closeSettingsBtn = document.getElementById('close-settings-btn');
+                const languageSelect = document.getElementById('language-select');
 
                 // ========================================================
                 // KONTEKS DARI HALAMAN
@@ -372,16 +520,32 @@
                 // ========================================================
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-                // Periksa dukungan browser sebelum melanjutkan
                 if (!SpeechRecognition) {
                     aiStatusText.textContent = 'Browser Anda tidak mendukung fitur suara.';
                     askMicBtn.disabled = true;
-                    console.error("Speech Recognition tidak didukung oleh browser ini.");
-                    return; // Hentikan eksekusi jika tidak didukung
+                    settingsBtn.disabled = true;
+                    return;
                 }
 
+                function updateSettingsButtonText() {
+                    // Ambil teks dari option yang sedang terpilih (misal: "Bahasa Indonesia")
+                    const selectedText = languageSelect.options[languageSelect.selectedIndex].textContent;
+
+                    // Ganti isi HTML tombol agar ikon tetap ada + teks baru
+                    settingsBtn.innerHTML = `<i class="fas fa-cog fa-lg"></i> ${selectedText}`;
+                }
+
+
+
                 const recognition = new SpeechRecognition();
-                recognition.lang = 'id-ID';
+
+                // Ambil bahasa dari cookie, atau default ke 'id-ID'
+                let currentLanguage = getCookie('language') || 'id-ID';
+                recognition.lang = currentLanguage;
+                languageSelect.value = currentLanguage;
+                // PANGGIL FUNGSI DI SINI (untuk pertama kali saat halaman dimuat)
+                updateSettingsButtonText();
+
                 recognition.interimResults = false;
                 recognition.continuous = false;
 
@@ -400,33 +564,58 @@
 
                 askMicBtn.addEventListener('click', () => {
                     try {
+                        // Pastikan bahasa recognition selalu yang terbaru dari cookie
+                        recognition.lang = getCookie('language') || 'id-ID';
                         recognition.start();
                     } catch (e) {
                         console.error("Recognition bisa jadi sudah berjalan.", e);
                     }
                 });
 
+                // Event listener untuk menu pengaturan
+                settingsBtn.addEventListener('click', () => {
+                    // Pastikan dropdown menampilkan bahasa yang sedang aktif
+                    languageSelect.value = getCookie('language') || 'id-ID';
+                    settingsPanel.style.display = 'flex';
+                });
+
+                closeSettingsBtn.addEventListener('click', () => {
+                    settingsPanel.style.display = 'none';
+                });
+
+                // Simpan bahasa ke cookie saat pilihan di dropdown berubah
+                languageSelect.addEventListener('change', () => {
+                    updateSettingsButtonText();
+                    const selectedLanguage = languageSelect.value;
+                    setCookie('language', selectedLanguage, 365); // Simpan cookie selama 1 tahun
+                    console.info(selectedLanguage);
+                    recognition.lang = selectedLanguage; // Langsung ubah bahasa untuk recognition
+                    // Anda bisa menutup panel otomatis setelah memilih
+                    // settingsPanel.style.display = 'none'; 
+                });
 
                 // ========================================================
-                // EVENT LISTENERS UNTUK SPEECH RECOGNITION
+                // EVENT LISTENERS UNTUK SPEECH RECOGNITION (Tidak berubah)
                 // ========================================================
                 recognition.onstart = () => {
-                    aiStatusText.textContent = 'Sedang mendengarkan...';
-                    askMicBtn.disabled = true; // Nonaktifkan tombol saat mendengarkan
+                    aiStatusText.textContent = 'Listening...';
+                    askMicBtn.disabled = true;
                     soundWaveAnimation.style.display = 'flex';
                 };
 
                 recognition.onend = () => {
                     aiStatusText.textContent = 'Press the microphone to ask a question';
-                    askMicBtn.disabled = false; // Aktifkan kembali tombol
+                    askMicBtn.disabled = false;
                     soundWaveAnimation.style.display = 'none';
                 };
 
                 recognition.onerror = (event) => {
                     if (event.error === 'no-speech') {
-                        aiStatusText.textContent = 'Tidak ada suara terdeteksi. Silakan coba lagi.';
+                        aiStatusText.textContent = 'No speech detected. Please try again.';
+                    } else if (event.error === 'language-not-supported') {
+                        aiStatusText.textContent = 'Language not supported. Check settings.';
                     } else {
-                        aiStatusText.textContent = 'Terjadi error. Coba lagi.';
+                        aiStatusText.textContent = 'An error occurred. Try again.';
                     }
                     console.error('Speech recognition error:', event.error);
                 };
@@ -439,16 +628,11 @@
 
 
                 // ========================================================
-                // FUNGSI-FUNGSI UTAMA
+                // FUNGSI-FUNGSI UTAMA (Tidak ada perubahan signifikan di sini)
                 // ========================================================
 
-                /**
-                 * Mengirim pertanyaan ke API dan mengelola respons.
-                 * @param {string} promptText - Teks pertanyaan dari user.
-                 */
                 async function askTheGuide(promptText) {
-                    aiStatusText.textContent = 'AI sedang berpikir...';
-                    // Buat gelembung chat placeholder untuk AI
+                    aiStatusText.textContent = 'AI is thinking...';
                     const aiBubble = createAiPlaceholderBubble();
 
                     const payload = {
@@ -460,6 +644,7 @@
                     };
 
                     try {
+                        // Ganti URL ini dengan URL API Anda yang sebenarnya
                         const response = await fetch('http://127.0.0.1:8001/voice-process', {
                             method: 'POST',
                             headers: {
@@ -476,31 +661,24 @@
                             const textAnswer = result.data.text_answer;
                             const base64Audio = result.data.audio_base64;
 
-                            // Perbarui status dan mulai putar audio
-                            aiStatusText.textContent = 'AI sedang menjawab...';
+                            aiStatusText.textContent = 'AI is replying...';
                             if (base64Audio && base64Audio !== "dev_mode_audio_disabled") {
-                                // Kirim gelembung AI dan teks jawaban ke fungsi audio
                                 playAudio(base64Audio, aiBubble, textAnswer);
                             } else {
-                                // Jika tidak ada audio, langsung tampilkan teks
                                 fillAiBubble(aiBubble, textAnswer);
                                 aiStatusText.textContent = 'Press the microphone to ask a question';
                             }
                         } else {
-                            fillAiBubble(aiBubble, `Maaf, terjadi kesalahan: ${result.message}`);
+                            fillAiBubble(aiBubble, `Sorry, an error occurred: ${result.message}`);
                         }
 
                     } catch (error) {
                         console.error('Error calling API:', error);
-                        fillAiBubble(aiBubble, 'Waduh, sepertinya ada masalah koneksi. Coba sesaat lagi ya.');
+                        fillAiBubble(aiBubble,
+                            'Oops, there seems to be a connection issue.');
                     }
                 }
 
-                /**
-                 * Menambahkan gelembung chat ke UI.
-                 * @param {string} text - Teks untuk ditampilkan.
-                 * @param {'user' | 'ai'} sender - Pengirim pesan.
-                 */
                 function addBubbleToChat(text, sender) {
                     const bubble = document.createElement('div');
                     bubble.textContent = text;
@@ -509,82 +687,56 @@
                     scrollToBottom();
                 }
 
-                /**
-                 * Membuat gelembung chat AI dengan animasi "sedang berbicara".
-                 * @returns {HTMLElement} Elemen gelembung AI yang baru dibuat.
-                 */
                 function createAiPlaceholderBubble() {
                     const bubble = document.createElement('div');
                     bubble.classList.add('ai-bubble');
-                    // Ini adalah animasi gelombang suara yang kita masukkan ke dalam bubble
                     bubble.innerHTML = `
-                    <div class="speaking-indicator">
-                        <div class="wave-bar"></div>
-                        <div class="wave-bar"></div>
-                        <div class="wave-bar"></div>
-                        <div class="wave-bar"></div>
-                        <div class="wave-bar"></div>
-                    </div>
-                `;
+            <div class="speaking-indicator">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+        `;
                     aiChatBody.appendChild(bubble);
                     scrollToBottom();
-                    return bubble; // Kembalikan elemen bubble agar bisa dimanipulasi nanti
+                    return bubble;
                 }
 
-                /**
-                 * Mengisi gelembung AI yang sudah ada dengan teks jawaban.
-                 * @param {HTMLElement} bubble - Elemen gelembung AI yang akan diisi.
-                 * @param {string} text - Teks jawaban akhir.
-                 */
+
+
                 function fillAiBubble(bubble, text) {
-                    bubble.innerHTML = ''; // Hapus animasi
-                    bubble.textContent = text; // Isi dengan teks
+                    bubble.innerHTML = '';
+                    bubble.textContent = text;
                 }
 
-                /**
-                 * Memainkan audio dari Base64 dan mengisi bubble setelah selesai.
-                 * @param {string} base64String - Audio dalam format base64.
-                 * @param {HTMLElement} bubble - Gelembung chat AI untuk diisi setelah audio selesai.
-                 * @param {string} finalText - Teks yang akan ditampilkan di gelembung.
-                 */
-                /**
-                 * Memainkan audio dari Base64, mengontrol animasi avatar, dan mengisi bubble.
-                 * @param {string} base64String - Audio dalam format base64.
-                 * @param {HTMLElement} bubble - Gelembung chat AI untuk diisi setelah audio selesai.
-                 * @param {string} finalText - Teks yang akan ditampilkan di gelembung.
-                 */
                 function playAudio(base64String, bubble, finalText) {
                     const audioUrl = `data:audio/mp3;base64,${base64String}`;
                     const audio = new Audio(audioUrl);
 
-                    // SEBELUM audio diputar
-                    aiAvatar.classList.add('is-speaking'); // Mulai animasi berbicara
-
+                    aiAvatar.classList.add('is-speaking');
                     audio.play();
 
-                    // SETELAH audio selesai diputar
                     audio.onended = () => {
-                        aiAvatar.classList.remove('is-speaking'); // Hentikan animasi
+                        aiAvatar.classList.remove('is-speaking');
                         fillAiBubble(bubble, finalText);
                         aiStatusText.textContent = 'Press the microphone to ask a question';
                     };
 
-                    // JIKA GAGAL memutar audio
                     audio.onerror = () => {
-                        console.error("Gagal memutar audio.");
-                        aiAvatar.classList.remove('is-speaking'); // Pastikan animasi berhenti jika ada error
-                        fillAiBubble(bubble, `(Gagal memutar suara) ${finalText}`);
+                        console.error("Failed to play audio.");
+                        aiAvatar.classList.remove('is-speaking');
+                        fillAiBubble(bubble, `(Failed to play audio) ${finalText}`);
                         aiStatusText.textContent = 'Press the microphone to ask a question';
                     }
                 }
-                /**
-                 * Fungsi untuk scroll otomatis ke bawah.
-                 */
+
                 function scrollToBottom() {
                     aiChatBody.scrollTop = aiChatBody.scrollHeight;
                 }
 
-            }); // Akhir dari DOMContentLoaded
+            });
         </script>
 
         {{-- Hapus <style> duplikat di bawah jika ada, cukup satu di atas --}}
