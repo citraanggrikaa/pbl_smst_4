@@ -13,63 +13,52 @@ class DestinationSeeder extends Seeder
      */
     public function run(): void
     {
+        // Menonaktifkan query log untuk efisiensi dan mengosongkan tabel
         DB::disableQueryLog();
         DB::table('destinations')->truncate();
 
-        // Menggunakan file CSV baru yang bersih
-        $csvFile = fopen(database_path('seeders/csv/destinasi_bali.csv'), 'r');
+        // Menggunakan file CSV baru
+        $csvFile = fopen(database_path('seeders/csv/destinations.csv'), 'r');
         
-        // Lewati baris header
+        // Lewati baris header dari CSV
         fgetcsv($csvFile); 
 
         $this->command->getOutput()->progressStart();
 
-        // Membaca file dengan delimiter koma (,)
         while (($row = fgetcsv($csvFile, 2000, ',')) !== false) {
-            // Lewati baris yang kosong atau tidak valid
-            if (empty($row) || !isset($row[0])) {
+            // Lewati baris yang kosong atau tidak memiliki data utama
+            if (empty($row) || empty($row[0])) {
                 continue;
             }
 
-            // Memetakan data dari CSV ke variabel (indeks sekarang pasti benar)
-            // 0:title, 1:category, 2:address, 3:description, 4:facilities, 5:opening_hours, 6:ticket_price, 7:image_url
-            $title        = $row[0];
-            $category     = $row[1];
-            $address      = $row[2];
-            $description  = $row[3];
-            $facilities   = $row[4];
-            $openingHours = $row[5];
-            $ticketPrice  = $row[6];
-            $imageUrl     = $row[7];
+            // Memetakan data dari CSV ke variabel berdasarkan urutan kolom baru
+            // 0: Place_Name, 1: City, 2: Description, 3: Category, 5: Image_1
+            $title       = $row[1];
+            $address     = $row[2];
+            $description = $row[3];
+            $category    = $row[4];
+            
+            // Mengambil URL gambar pertama yang valid dari kolom Image_1 (indeks ke-5)
+            // Anda bisa menambahkan logika untuk memeriksa kolom gambar lain jika diperlukan
+            $imageUrl = 'images/bali.webp';
 
-            // 1. Membuat kolom 'desc' dengan format Markdown untuk ditampilkan di web
-            $descMarkdown = "## Deskripsi\n\n<p>" . e($description) . "</p>\n\n";
-            if ($facilities) {
-                $descMarkdown .= "### Fasilitas\n<ul>\n";
-                foreach (explode(',', $facilities) as $facility) { 
-                    $descMarkdown .= "<li>" . e(trim($facility)) . "</li>\n";
-                }
-                $descMarkdown .= "</ul>\n\n";
-            }
-            if ($openingHours) {
-                $descMarkdown .= "### Jam Buka\n<p>" . e($openingHours) . "</p>\n\n";
-            }
-            if ($ticketPrice) {
-                $descMarkdown .= "### Harga Tiket Masuk\n<p>" . e($ticketPrice) . "</p>";
-            }
+            // 1. Kolom 'desc' untuk ditampilkan di web, langsung dari deskripsi CSV
+            // Kita bungkus dengan tag <p> untuk konsistensi format HTML
+            $descForWeb = "<p>" . e($description) . "</p>";
 
-            // 2. Membuat kolom 'data_detail' untuk semantic search (gabungan semua data teks)
-            $dataDetail = "Nama: " . $title . ". Kategori: " . $category . ". Alamat: " . $address . ". Deskripsi: " . $description . ". Fasilitas yang tersedia: " . $facilities . ".";
+            // 2. Kolom 'data_detail' untuk referensi AI, berisi gabungan informasi penting
+            $dataDetail = "Nama: " . $title . ". Kategori: " . $category . ". Alamat: " . $address . ". Deskripsi: " . $description;
+            // Membersihkan spasi berlebih
             $dataDetail = preg_replace('/\s+/', ' ', $dataDetail);
 
             // 3. Membuat record baru di database
             Destination::create([
                 'title'       => $title,
                 'address'     => $address,
-                'desc'        => $descMarkdown,
+                'desc'        => $descForWeb,
                 'data_detail' => $dataDetail,
                 'image'       => $imageUrl,
-                'embedding'   => null,
+                'embedding'   => null, // Embedding akan diisi oleh Job nanti
             ]);
             
             $this->command->getOutput()->progressAdvance();
