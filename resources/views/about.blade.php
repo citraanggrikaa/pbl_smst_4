@@ -30,37 +30,45 @@
 
 
 
-<section
-    style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('{{ asset('images/bg1.webp') }}'); background-size: cover; background-position: center; padding: 60px 0;">
-    
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center px-4 px-md-5 py-4 py-md-5 shadow-lg"
-        style="background: rgba(255, 255, 255, 0.82); max-width: 1200px; width: 100%; border-radius: 20px; gap: 3rem;">
-        
-        <!-- Gambar -->
-        <div class="rounded shadow"
-            style="background-image: url('{{ asset('images/bg1.webp') }}'); width: 100%; max-width: 340px; height: 440px; background-size: cover; background-position: center;">
-        </div>
+    <section
+        style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('{{ asset('images/bg1.webp') }}'); background-size: cover; background-position: center; padding: 60px 0;">
 
-        <!-- Teks -->
-        <div class="mt-4 mt-md-0" style="max-width: 700px;">
-            <h2 class="mb-4"
-                style="font-size: 2.2rem; font-weight: bold; color: #fffff; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-                About Us
-            </h2>
-            <div style="font-size: 1.05rem; color: #fffff; text-shadow: 0 1px 3px rgba(0,0,0,0.15); font-weight: 500;">
-                <p style="text-align: justify;">
-                    We are a dedicated team committed to delivering an innovative and efficient travel search experience. With full-text search technology, you can easily find information about tourist destinations based on name, location, category, or even specific keywords that match your interests.
-                </p>
-                <p style="text-align: justify;">
-                    Our platform is designed to make it easy for you to discover travel destinations that match your preferences. With advanced search features, you can quickly and easily explore various interesting places in Bali.
-                </p>
-                <p style="text-align: justify;">
-                    Our team consists of experts in information technology and tourism who work together to deliver the best experience for our users. We believe that every journey is an opportunity to create unforgettable memories, and we are here to help you make them happen.
-                </p>
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center px-4 px-md-5 py-4 py-md-5 shadow-lg"
+            style="background: rgba(255, 255, 255, 0.82); max-width: 1200px; width: 100%; border-radius: 20px; gap: 3rem;">
+
+            <!-- Gambar -->
+            <div class="rounded shadow"
+                style="background-image: url('{{ asset('images/bg1.webp') }}'); width: 100%; max-width: 340px; height: 440px; background-size: cover; background-position: center;">
+            </div>
+
+            <!-- Teks -->
+            <div class="mt-4 mt-md-0" style="max-width: 700px;">
+                <h2 class="mb-4"
+                    style="font-size: 2.2rem; font-weight: bold; color: #fffff; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                    About Us
+                </h2>
+                <div style="font-size: 1.05rem; color: #fffff; text-shadow: 0 1px 3px rgba(0,0,0,0.15); font-weight: 500;">
+                    <p style="text-align: justify;">
+                        Welcome to the future of travel discovery. We're a team of travel lovers and tech innovators
+                        dedicated to one simple idea: finding your perfect destination should be effortless and personal.
+                    </p>
+                    <p style="text-align: justify;">
+                        Forget keywords. Our platform is powered by Multilingual Semantic Search, allowing you to describe
+                        what you're looking for in your own words and language. Simply ask a question like, "Where can I
+                        find authentic street food away from the tourist crowds?" and we'll understand.
+                    </p>
+                    <p style="text-align: justify;">
+                        Once you're there, our Multilingual AI Tour Guide becomes your pocket-sized expert. Ask it anything
+                        about your location and get instant answers, making every visit richer and more informed.
+                    </p>
+                    <p style="text-align: justify;">
+                        We blend the art of travel with the science of AI to help you create truly unforgettable memories.
+                        Your perfect journey starts with a simple conversation. We're here to listen.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -112,7 +120,7 @@
             });
         </script>
         <script>
-            document.getElementById('toggleSearch').addEventListener('click', function () {
+            document.getElementById('toggleSearch').addEventListener('click', function() {
                 const bar = document.getElementById('searchBar');
                 bar.style.display = bar.style.display === 'none' ? 'flex' : 'none';
             });

@@ -99,12 +99,12 @@
 
         <!-- Konten Utama -->
         <div class="container position-relative" style="z-index: 2;">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+            <div class="row no-gutters slider-text p-5 align-items-center justify-content-start" style="padding-top: 5cm !important"
                 data-scrollax-parent="true">
-                <div class="col-md-12 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="col-md-12 ftco-animate text-center rounded" data-scrollax=" properties: { translateY: '70%' }" style="background-color: rgba(255, 255, 255, 0.3); padding: 20px;">
                     <h1 class="mb-4" style="font-size: 48px; color: #001f3f;">
                         <strong>Welcome to Pesona Bali</strong><br>
-                        Discover the Beauty, Create Memories!
+                        <b  style="font-size: 28px; color: #001f3f;">Stop searching, Start asking. <div class="d-none d-sm-block">Go beyond keywords, Tell us your story.</div></b>
                     </h1>
 
                     <!-- Search Bar -->
@@ -145,7 +145,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-                                style="background-image: url({{ url('storage/'.$d->image) }}); 
+                                style="background-image: url({{ url('storage/' . $d->image) }}); 
                                height: 300px;
                                background-size: cover;
                                background-position: center;">
