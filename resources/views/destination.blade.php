@@ -29,26 +29,29 @@
         <link rel="stylesheet" href="{{ asset('css/pagination-custom.css') }}">
     @endpush
 
-    
+
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
     <link rel="stylesheet" href="{{ asset('css/destination-hero.css') }}">
-    <div class="hero-wrap py-4 custom-bg d-flex align-items-center justify-content-center" style="min-height: 350px; margin-bottom: 2.5rem; position: relative;">
+    <div class="hero-wrap py-4 custom-bg d-flex align-items-center justify-content-center"
+        style="min-height: 350px; margin-bottom: 2.5rem; position: relative;">
         <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
         <div class="container position-relative" style="z-index:2;">
             <div class="d-flex flex-column align-items-center justify-content-center w-100" style="min-height: 250px;">
                 {{-- Tampilkan judul berdasarkan apakah ini halaman pencarian atau bukan --}}
-                <h1 class="mb-3 bread d-flex justify-content-center align-items-center w-100" style="color:rgb(255, 255, 255); font-size:3rem; font-weight:700; text-align:center; min-height:80px; text-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 1px 0 #333;">Destination</h1>
+                <h1 class="mb-3 bread d-flex justify-content-center align-items-center w-100"
+                    style="color:rgb(255, 255, 255); font-size:3rem; font-weight:700; text-align:center; min-height:80px; text-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 1px 0 #333;">
+                    Destination</h1>
                 <!-- ================================================== -->
                 <!-- PERBARUI FORM PENCARIAN INI -->
                 <!-- ================================================== -->
                 <form action="{{ route('search') }}" method="GET"
                     class="search-destination-form d-flex justify-content-center mt-4 w-100" style="z-index:2;">
                     <div class="form-group d-flex" style="max-width: 600px; width: 100%;">
-                        <input type="text" name="query" class="form-control form-control-lg"
-                            placeholder="Search..." value="{{ $query ?? '' }}"
+                        <input type="text" name="query" class="form-control form-control-lg" placeholder="Search..."
+                            value="{{ $query ?? '' }}"
                             style="border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 0; border-bottom-right-radius: 0; box-shadow: none; border: none; padding: 12px 20px;">
                         <button type="submit" class="d-flex align-items-center justify-content-center"
                             style="background-color: rgb(231, 252, 219); border: none; border-top-right-radius: 30px; border-bottom-right-radius: 30px; padding: 0 20px;">
@@ -71,7 +74,7 @@
                                 <div class="destination">
                                     <a href="{{ route('destination.single', ['id' => $d->id]) }}"
                                         class="img img-2 d-flex justify-content-center align-items-center"
-                                        style="background-image: url({{ url('storage/'.$d->image) }}); height: 300px; background-size: cover; background-position: center;">
+                                        style="background-image: url({{ url('storage/' . $d->image) }}); height: 300px; background-size: cover; background-position: center;">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
